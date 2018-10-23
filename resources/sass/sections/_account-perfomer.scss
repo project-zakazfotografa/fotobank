@@ -1,0 +1,112 @@
+.account-perfomer{
+	//
+	&__user{
+		margin-top: 22px;
+		&_photo{
+			width: 98px;
+			height: 98px;
+			border-radius: 49px;
+			background-image: url(../../img/perfomer.png);
+			background-size: cover;
+		}
+		&_info{
+			font-size: 12px;
+			line-height: 14px;
+		}
+	}
+
+	&__rating{
+		&_mark-val{
+			font-size: 18px;
+			line-height: 18px;
+		}
+		&_number{
+			font-size: 12px;
+			line-height: 14px;
+		}
+		&_watch{
+			color: #CCC;
+			font-size: 12px;
+			line-height: 14px;
+		}
+	}
+
+	&__setting{
+		margin-top: 22px;
+		&-location{
+			margin-top: 30px;
+		}
+		&-about{
+			margin-top: 30px;
+		}
+		&-name_show-text{
+			font-size: 12px;
+			line-height: 14px;
+			color: #999999;
+		}
+		&-worktime{
+			font-size: 18px;
+			line-height: 20px;
+			&_item{
+				font-size: 16px;
+				line-height: 18px;
+			}
+		}
+		&-min{
+			&_title{
+				
+			}
+			&_val{
+				width: 74px;
+			}
+			&_cur{
+				color: #999999;
+			}
+		}
+
+		&-exp{
+			&_dropdown{
+				background-color: #EAEAEA;
+			}
+		}
+
+		&-working{
+			margin-top: 20px;
+		}
+
+		&-event{
+			margin-top: 20px;
+			width: 200px;
+
+		}
+
+		&-cert{
+			&_title{
+				color: #999999;
+				margin-top: 20px;
+			}
+			&_item{
+				border: 1px solid #E0E0E0;
+				width: 80px;
+				height: 100px;
+			}
+		}
+
+		&-services{
+			margin-top: 30px;
+			&_price{
+				&-title{
+					font-size: 12px;
+					line-height: 14px;
+				}
+				&-val{
+					width: 52px;
+				}
+			}
+		}
+
+		&-result{
+			margin-top: 30px;
+		}
+	}
+}

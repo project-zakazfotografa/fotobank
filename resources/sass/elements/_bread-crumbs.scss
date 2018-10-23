@@ -1,0 +1,19 @@
+.bread-crumbs{
+	//margin-top: 12px;
+	width: 100%;
+	z-index: 2;
+	
+	&__home, &__link{
+		color: #333333;
+	}
+	&__home:hover, &__link:hover{
+		color: #333333;
+	}
+	&__link:before{
+		background-color: #C4C4C4;
+		width: 6px;
+		height: 6px;
+		border-radius: 3px;
+		content: ' ';
+	}
+}

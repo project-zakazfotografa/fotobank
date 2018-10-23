@@ -1,0 +1,53 @@
+// @import "vars/_variables";
+@import "vars/_custom-var";
+@import "_general";
+
+/*-----element style-----*/
+@import "elements/_advert";
+@import "elements/_button";
+@import "elements/_login-form";
+@import "elements/_bread-crumbs";
+@import "elements/_input";
+@import "elements/_tags";
+
+/*-----properties-----*/
+@import "prop/_border-radius";
+
+
+/*-----section style-----*/
+@import "sections/_header";
+@import "sections/_footer";
+@import "sections/_main-section";
+@import "sections/_login";
+@import "sections/_account-perfomer";
+
+// blocks
+@import "parteils/_user-short";
+@import "parteils/_review";
+@import "parteils/_filter-list";
+@import "parteils/_tabs";
+
+// modals
+@import "modals/_personal";
+@import "modals/_add-photo";
+
+
+@import "parteils/_pop-up";
+
+// pages
+@import "pages/_user-page";
+@import "parteils/_desc";
+
+
+
+// personal area
+@import "personal-area/_menu";
+@import "personal-area/_forms";
+@import "personal-area/_options";
+@import "personal-area/_orders";
+
+
+// cms
+@import "cms/_cms.scss";
+@import "cms/_cms-menu.scss";
+@import "cms/_bullets";

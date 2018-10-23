@@ -1,0 +1,85 @@
+.main {
+	padding-top: 16px;
+	padding-bottom: 80px;
+
+	&-desc {
+		margin-bottom: 40px;
+	}
+
+	&__application {
+		top: 20px;
+	}
+
+	&__form {
+		&_textarea {
+			height: 200px;
+			border: 1px #CCCCCC solid;
+			resize: none;
+			padding: 10px;
+		}
+
+		&_btn-plus {
+			height: 24px;
+			width: 24px;
+			padding: 1px;
+			border-radius: 12px;
+			background-color: #E3E3E3;
+			font-size: 15px;
+		}
+
+		&_btn-plus:active,
+		&_btn-plus:hover {
+			background-color: #888;
+		}
+	}
+
+	&__filter-wrap {
+		padding: 20px 0 10px;
+		top: 0;
+		z-index: 1;
+		margin-top: -20px;
+		margin-bottom: -10px;
+		background-color: #eaeaea;
+	}
+
+	&__filter {
+		padding: 15px 10px;
+		max-width: 728px;
+		//margin: 20px 0 30px 0;
+		//margin-bottom: 30px;
+		box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+
+		&_btn {
+			padding: 0 20px;
+			color: #888888;
+			font-size: 18px;
+			line-height: 21px;
+		}
+
+		&_btn-active {
+			color: #000;
+		}
+
+		&_btn:active,
+		&_btn:hover {
+			color: #000;
+			text-decoration: none;
+		}
+	}
+
+	&__ad {
+		max-width: 728px;
+	}
+
+	&__btn {
+		width: 100%;
+		max-width: 728px;
+		border: 1px solid #BDBDBD;
+		background-color: #eaeaea;
+	}
+
+	&__btn:active,
+	&__btn:hover {
+		background-color: #BDBDBD;
+	}
+}

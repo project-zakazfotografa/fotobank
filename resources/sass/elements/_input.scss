@@ -1,0 +1,30 @@
+.input{
+	border: 1px #E0E0E0 solid;
+}
+.input[type="checkbox"]{
+	width: 14px;
+	height: 14px;
+}
+.input[type="text"], .input[type="tel"], .input[type="email"]{
+	height: 40px;
+}
+.input::placeholder{
+	color: #999999;
+}
+
+.input-grey{
+	background-color: #EAEAEA;
+	border: 0;
+}
+.input-grey::placeholder{
+	color: #333333;
+}
+
+.textarea{
+	border: 1px #E0E0E0 solid;
+	resize: none;
+	height: 100px;
+}
+.textarea::placeholder{
+	color: #999999;
+}

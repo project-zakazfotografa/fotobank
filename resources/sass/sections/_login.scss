@@ -1,0 +1,35 @@
+.login{
+	&__close{
+		margin-top: 92px;
+		width: 20px;
+		height: 20px;
+		&_btn{
+			width: 20px;
+			height: 20px;
+		}
+		&_btn:before, &_btn:after {
+			position: absolute;
+			top: 5px;
+		    left: 10px;
+			content: ' ';
+			height: 20px;
+			width: 1px;
+			background-color: #828282;
+		}
+		&_btn:before {
+			transform: rotate(45deg);
+		}
+		&_btn:after {
+			transform: rotate(-45deg);
+		}
+	}
+	&__close:hover{
+		&_btn:before {
+			background-color: red;
+		}
+	}
+	&__form{
+		top: calc(50% - 170px);
+		right: calc(50% - 185px);
+	}
+}

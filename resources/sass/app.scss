@@ -1,0 +1,21 @@
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+//Magnifyc popup
+@import "magnific-popup.css";
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+//Local Styles
+@import "style";
+
+
+.navbar-laravel {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}

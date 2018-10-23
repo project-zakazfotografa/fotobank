@@ -1,0 +1,194 @@
+.sidebar-filter {
+  position: sticky;
+  top: 1rem;
+  width: 100%;
+  background: #fff;
+  padding: 30px;
+  @extend .block-shadow;
+  border-radius: 3px;
+
+  &__caption {
+    margin-bottom: 18px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
+
+.filter {
+  &-caption {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+
+  &-list {
+    max-height: 193px;
+    overflow: hidden;
+    transition: .3s;
+    &--open {
+      max-height: 1000px;
+    }
+  }
+
+  &-item {
+    margin-bottom: 8px;
+
+    &:hover {
+      color: #291DC4;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0;
+      cursor: pointer;
+
+      span {
+        font-size: 14px;
+        transition: 0.3s;
+      }
+    }
+
+    &__checkbox {
+      margin-right: 12px;
+    }
+  }
+
+  &-type {
+    margin-bottom: 1rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.filter__show-more {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  padding: 10px 0;
+  cursor: pointer;
+
+  &:hover {
+    .filter__show-more {
+      &-text {
+        color: #291DC4;
+      }
+
+      &-dots {
+        span {
+          background: #291DC4;
+        }
+      }
+    }
+  }
+
+  &-text {
+    font-size: 14px;
+  }
+
+  &-dots {
+    top: 5px;
+    right: 0;
+
+    span {
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      background: #ccc;
+      border-radius: 50%;
+      transition: 0.3s;
+    }
+  }
+}
+
+.checkbox {
+  &-custom {
+    display: none;
+
+    &__icon {
+      position: relative;
+      margin-right: 10px;
+      width: 16px;
+      height: 16px;
+      border: 1px solid #CCCCCC;
+      border-radius: 3px;
+    }
+  }
+
+  &-custom:checked + &-custom__icon::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    bottom: 1px;
+    left: 1px;
+    background: #FFBB33;
+    border-radius: 1px;
+  }
+  &-custom:checked ~ .filter-item__text {
+    color: #FFBB33;
+  }
+}
+
+.filter {
+  &__checkbox {
+    display: none;
+  }
+
+  &__checkbox-custom {
+    position: relative;
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px;
+  }
+
+  &__checkbox-custom,
+  &__text {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &__checkbox:checked + &__checkbox-custom::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    bottom: 1px;
+    left: 1px;
+    background: #FFBB33;
+    border-radius: 1px;
+  }
+}
+
+.city-select {
+  margin-bottom: 20px;
+
+  &__caption {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+
+  select {
+    border: 1px solid #E2E2E2;
+    padding: 5px;
+    width: 100%;
+    background: #fff;
+    border-radius: 3px;
+    font-size: 14px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

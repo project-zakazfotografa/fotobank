@@ -1,0 +1,18 @@
+.cms-menu {
+  &__item {
+    position: relative;
+    margin-bottom: 5px;
+    color: #fff;
+    cursor: pointer;
+    padding: 5px 30px;
+    transition: 0.3s;
+
+    &:hover {
+      background: #36aaec;
+    }
+
+    &--active {
+      background: #36aaec;
+    }
+  }
+}

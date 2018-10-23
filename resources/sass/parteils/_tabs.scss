@@ -1,0 +1,38 @@
+.tabs {
+  &-nav {
+    display: flex;
+    margin-bottom: 16px;
+
+    &__item {
+      display: flex;
+      padding: 5px 10px;
+      color: #666;
+      cursor: pointer;
+
+      &--active {
+        position: relative;
+        color: #333;
+
+        &:after {
+          position: absolute;
+          bottom: -1px;
+          left: 0;
+          background: #EFCE4A;
+          height: 2px;
+          width: 100%;
+          content: '';
+        }
+      }
+    }
+  }
+
+  &-content {
+    &__item {
+      display: none;
+
+      &:first-child {
+        display: block;
+      }
+    }
+  }
+}

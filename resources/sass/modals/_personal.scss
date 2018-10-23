@@ -1,0 +1,213 @@
+.password-recovery,
+.sign-in,
+.sign-out {
+  max-width: 670px;
+}
+
+.modal-window {
+  &__window {
+    height: 27rem;
+    position: relative;
+  }
+
+  &__wrap {
+    height: 100%;
+  }
+
+  &__bottom {
+    width: 100%;
+  }
+
+  &__text {
+    //background-image: url("../../img/modal-bg.png");
+    background-position: center 90%;
+    background-repeat: no-repeat;
+    background: #1e91d3;
+    width: 45%;
+
+    &_descr {
+      line-height: 1.5rem;
+    }
+  }
+
+  &__content {
+    width: 55%;
+  }
+
+  &__form {
+    width: 100%;
+  }
+
+  &__form-wrap {
+    position: relative;
+  }
+
+  &__forget-password {
+    display: block;
+    color: #999;
+    transition: .3s;
+    font-size: 14px;
+    &:hover {
+      color: #333;
+      text-decoration: none;
+    }
+  }
+  /*&__social-icons{
+		width: 196px;
+		height: 30px;
+		margin: 0 auto;
+		margin-top: 20px;
+		margin-bottom: 4px;
+		display: flex;
+		justify-content: space-between;
+		a{
+			display: block;
+			width: 25px;
+			height: 25px;
+			margin: 0 3px;
+			transition: 0.3s ease;
+			img{
+				height: 100%;
+				width: 100%;
+
+			}
+		}
+		a:hover{
+			transform: scale(1.2);
+			transition: 0.3s ease;
+		}
+	}
+	&__transition, &__social_title{
+		font-size: 14px;
+		line-height: 20px;
+		margin-top: 18px;
+		margin-bottom: 0px;
+		color: #000000;
+		font-weight: normal;
+	}*/
+  &__transition {
+    position: relative;
+    margin-top: 0;
+  }
+
+  &__transition:after,
+  &__transition:before {
+    position: absolute;
+    top: 10px;
+    display: block;
+    content: '';
+    width: 70px;
+    height: 1px;
+    background-color: #EAEAEA;
+  }
+
+  &__transition:after {
+    right: 0;
+  }
+
+  &__transition:before {
+    left: 0;
+  }
+
+  &__textarea {
+    height: 100px;
+    resize: none;
+
+    &:focus {
+      outline: 0;
+      box-shadow: none;
+      border: 1px #FF9900 solid;
+    }
+  }
+
+  &__grade_stars-star {
+    cursor: pointer;
+    font-size: 1rem;
+    color: #ccc;
+    transition: 0.3s ease;
+
+    &:hover {
+      color: #f90;
+      transition: 0.3s ease;
+    }
+  }
+  /*
+
+	&__textarea:focus{
+
+	}
+
+	&__name-company{
+		margin: 20px 20px 0 20px;
+		font-size: 16px;
+		line-height: 28px;
+		color: #333333;
+		img{
+			margin-right: 15px;
+		}
+	}
+	&__message{
+		font-size: 14px;
+		line-height: 25px;
+		color: #999999;
+		margin: 19px 0px;
+		text-align: center;
+	}*/
+}
+
+.feedback-accordion {
+  &__header {
+    padding: 0;
+    border: 0;
+    background: #FFFFFF;
+  }
+
+  &__body {
+    padding: 0;
+    border: 0;
+    background: #FFFFFF;
+  }
+
+  &__button {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 46px;
+    border: 0;
+    background: #FFFFFF;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: left;
+    color: #333333;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 5px;
+  }
+
+  &__card {
+    border: 0;
+  }
+
+  &__arrow_down {
+    transform: rotate(180deg);
+  }
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(2.6125rem + 2px);
+    padding: .65rem 1rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: .185rem;
+}
+
+// @include media-breakpoint-down(xs) {
+//   .modal-window__content {
+//     width: 100%;
+//   }
+// }

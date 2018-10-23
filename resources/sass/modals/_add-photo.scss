@@ -1,0 +1,28 @@
+.add-photo {
+  .modal-content {
+    min-width: 600px;
+    height: 300px;
+  }
+  .modal-body {
+    padding: 30px;
+    height: 100%;
+  }
+  &__content {
+    display: flex;
+    height: 100%;
+  }
+  &__upload {
+    flex: 1;
+    margin-right: 1rem;
+    background: #F9F9F9;
+    border-radius: 3px;
+  }
+  &__tags {
+    .pa-tag {
+      margin-bottom: 1rem;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

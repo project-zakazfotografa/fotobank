@@ -1,0 +1,19 @@
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: -10px;
+  &-item {
+    margin-top: 10px;
+    height: 30px;
+    padding: 0 10px;
+    margin-right: 1rem;
+    line-height: 30px;
+    background: #F9F9F9;
+    font-size: 14px;
+    transition: 0.3s;
+    cursor: pointer;
+    &:hover {
+      background: #e9e9e9;
+    }
+  }
+}
