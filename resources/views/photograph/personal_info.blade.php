@@ -25,13 +25,20 @@
                                         <div class="user-page__sidebar-content">
                                             <div class="user-page__user user-page__block">
                                                 <div class="pa-user__pic">
-                                                    <!-- <label>
-                                                        <input class="user-page__user-input" type="file"> -->
+                                                    <label>
+                                                        <input class="user-page__user-input" type="file">
                                                         <img src="{{ asset('img/user-no-photo.svg') }}" alt="">
+<<<<<<< HEAD
                                                     <!-- </label> -->
                                                     <div class="pa-user__pic-change">
                                                       <button type="button" class="button pa-user__pic-change-btn">Обновить фотографию</button>
                                                     </div>
+=======
+                                                        <div class="pa-user__pic-change">
+                                                          <div class="pa-user__pic-change-btn">Обновить фотографию</div>
+                                                        </div>
+                                                    </label>
+>>>>>>> c8c1919acb53141febd0e426507b30e756557fd0
                                                 </div>
 
                                                 <div class="pa-user__info">
