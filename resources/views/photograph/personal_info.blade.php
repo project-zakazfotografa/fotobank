@@ -30,12 +30,12 @@
                                                         <img src="{{ asset('img/user-no-photo.svg') }}" alt="">
                                                     <!-- </label> -->
                                                     <div class="pa-user__pic-change">
-                                                      <button class="button pa-user__pic-change-btn">Обновить фотографию</button>
+                                                      <button type="button" class="button pa-user__pic-change-btn">Обновить фотографию</button>
                                                     </div>
                                                 </div>
 
                                                 <div class="pa-user__info">
-                                                    <input class="pa-input" name="name" type="text" placeholder="Имя" value="{{ $user[0]->name }}">
+                                                    <input class="pa-input" name="name" type="text" placeholder="Имя" value="{{ $user[0]->name !== null ? $user[0]->name : '' }}">
                                                     <input class="pa-input" type="text" placeholder="Фамилия" name="last_name" value="{{ $user[0]->userData !== null ? $user[0]->userData->last_name : '' }}">
                                                     <div class="pa-user__birthday">
                                                         <input id="pa-birthday" class="pa-input pa-user__birthday" type="text" name="birth_date" placeholder="Дата рождения" value="{{ $user[0]->userData !== null ? $user[0]->userData->birth_date : '' }}">
