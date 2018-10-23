@@ -14,16 +14,16 @@
           bottom: 0;
         }
       }
-      // label {
-      //   height: 100%;
-      //   cursor: pointer;
-      //   input {
-      //     display: none;
-      //   }
-      //   img {
-      //     height: 100%;
-      //   }
-      // }
+      label {
+        height: 100%;
+        cursor: pointer;
+        input {
+          display: none;
+        }
+        img {
+          height: 100%;
+        }
+      }
       &-change {
         display: flex;
         align-items: center;
@@ -38,6 +38,8 @@
         border-radius: 3px;
         &-btn {
           background: none;
+          text-align: center;
+          line-height: 50px;
           color: #fff;
           width: 100%;
           height: 100%;

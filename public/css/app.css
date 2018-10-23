@@ -13306,6 +13306,19 @@ ul {
   bottom: 0;
 }
 
+.pa-user__pic label {
+  height: 100%;
+  cursor: pointer;
+}
+
+.pa-user__pic label input {
+  display: none;
+}
+
+.pa-user__pic label img {
+  height: 100%;
+}
+
 .pa-user__pic-change {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -13329,6 +13342,8 @@ ul {
 
 .pa-user__pic-change-btn {
   background: none;
+  text-align: center;
+  line-height: 50px;
   color: #fff;
   width: 100%;
   height: 100%;
