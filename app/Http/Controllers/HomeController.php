@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\UserData;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
@@ -38,7 +39,8 @@ class HomeController extends Controller
 
     public function storeUserInfo(Request $request){
         $user = User::find(auth()->user()->id);
-        //dd($request->all());
+        Storage::put('/avatar/' . auth()->user()->id . '/', $request->avatar);
+        dd($request->all());
         if (UserData::find(auth()->user()->id) === null){
             $userData = UserData::create($request->all());
         } else {

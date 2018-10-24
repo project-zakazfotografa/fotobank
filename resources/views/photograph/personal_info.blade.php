@@ -16,7 +16,7 @@
 
                 <div class="pa-menu__tabs-content">
                     <div class="pa-menu__tabs-item">
-                        <form method="get" action="{{ route('photograph.save') }}">
+                        <form method="post" action="{{ route('photograph.save') }}" enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
                             <div class="row">
@@ -26,19 +26,16 @@
                                             <div class="user-page__user user-page__block">
                                                 <div class="pa-user__pic">
                                                     <label>
-                                                        <input class="user-page__user-input" type="file">
+                                                        <input class="user-page__user-input" type="file" name="avatar">
                                                         <img src="{{ asset('img/user-no-photo.svg') }}" alt="">
-<<<<<<< HEAD
                                                     <!-- </label> -->
                                                     <div class="pa-user__pic-change">
                                                       <button type="button" class="button pa-user__pic-change-btn">Обновить фотографию</button>
                                                     </div>
-=======
                                                         <div class="pa-user__pic-change">
                                                           <div class="pa-user__pic-change-btn">Обновить фотографию</div>
                                                         </div>
                                                     </label>
->>>>>>> c8c1919acb53141febd0e426507b30e756557fd0
                                                 </div>
 
                                                 <div class="pa-user__info">
