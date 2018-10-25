@@ -154,7 +154,12 @@
             <div class="modal-body">
                 <div class="add-photo__content">
                     <div class="add-photo__upload">
-
+                      <label>
+                        <input class="add-photo__upload-input" type="file">
+                        <div class="add-photo__upload-pic">
+                          <img class="add-photo__upload-img" src="https://bipbap.ru/wp-content/uploads/2017/04/0_7c779_5df17311_orig.jpg" alt="">
+                        </div>
+                      </label>
                     </div>
                     <div class="add-photo__tags">
                         <div class="pa-tag">Семейная</div>

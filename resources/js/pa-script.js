@@ -45,3 +45,9 @@ $('.pa-user__price-add').click(function () {
   $('.pa-user__price-item-new').clone().appendTo(".pa-user__price-bottom");
   $('.pa-user__price-item:not(:last-child)').removeClass('pa-user__price-item-new');
 });
+
+
+// click tag
+$('.pa-tag').click(function () {
+  $(this).toggleClass('pa-tag--active');
+});

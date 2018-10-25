@@ -48069,6 +48069,12 @@ $('.pa-user__price-add').click(function () {
   $('.pa-user__price-item:not(:last-child)').removeClass('pa-user__price-item-new');
 });
 
+// click tag
+$('.pa-tag').click(function () {
+  // $(this).parent().find('.pa-tag').removeClass('pa-tag--active');
+  $(this).toggleClass('pa-tag--active');
+});
+
 /***/ }),
 /* 44 */
 /***/ (function(module, exports) {

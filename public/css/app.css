@@ -12615,8 +12615,30 @@ ul {
       -ms-flex: 1;
           flex: 1;
   margin-right: 1rem;
-  background: #F9F9F9;
   border-radius: 3px;
+}
+
+.add-photo__upload label {
+  margin-bottom: 0;
+  height: 100%;
+  cursor: pointer;
+}
+
+.add-photo__upload-input {
+  display: none;
+}
+
+.add-photo__upload-pic {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .add-photo__tags .pa-tag {
@@ -13763,6 +13785,7 @@ ul {
   line-height: 30px;
   background: #F9F9F9;
   font-size: 14px;
+  border-radius: 3px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
   cursor: pointer;
