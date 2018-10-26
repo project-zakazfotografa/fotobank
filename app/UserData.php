@@ -11,6 +11,8 @@ class UserData extends Model
 
     protected $fillable = [
         'user_id',
+        'first_name',
+        'avatar',
         'last_name',
         'birth_date',
         'experience',
@@ -23,6 +25,13 @@ class UserData extends Model
         'min_price',
         'currency',
         'price_for_hour',
+        'mon',
+        'tue',
+        'wed',
+        'thu',
+        'fri',
+        'sut',
+        'sun',
         'currency_h',
         'deleted_at',
     ];

@@ -27,7 +27,8 @@
                                                 <div class="pa-user__pic">
                                                     <label>
                                                         <input class="user-page__user-input" type="file" name="avatar">
-                                                        <img src="{{ asset('img/user-no-photo.svg') }}" alt="">
+                                                        {{--<img src="{{ asset('img/user-no-photo.svg') }}" alt="">--}}
+                                                        <img src="{{ $user[0]->userData && $user[0]->userData->avatar !== null ? asset($user[0]->userData->avatar) : asset('img/user-no-photo.svg') }}" alt="">
                                                     <!-- </label> -->
                                                     <div class="pa-user__pic-change">
                                                       <button type="button" class="button pa-user__pic-change-btn">Обновить фотографию</button>
@@ -39,7 +40,7 @@
                                                 </div>
 
                                                 <div class="pa-user__info">
-                                                    <input class="pa-input" name="name" type="text" placeholder="Имя" value="{{ $user[0]->name !== null ? $user[0]->name : '' }}">
+                                                    <input class="pa-input" name="first_name" type="text" placeholder="Имя" value="{{ $user[0]->userData !== null ? $user[0]->userData->first_name : '' }}">
                                                     <input class="pa-input" type="text" placeholder="Фамилия" name="last_name" value="{{ $user[0]->userData !== null ? $user[0]->userData->last_name : '' }}">
                                                     <div class="pa-user__birthday">
                                                         <input id="pa-birthday" class="pa-input pa-user__birthday" type="text" name="birth_date" placeholder="Дата рождения" value="{{ $user[0]->userData !== null ? $user[0]->userData->birth_date : '' }}">
@@ -47,7 +48,7 @@
                                                 </div>
                                                 <div class="pa-user__experience">
                                                     <span>Опыт, лет</span>
-                                                    <input class="pa-input" type="text" name="experience">
+                                                    <input class="pa-input" type="text" name="experience" value="0">
                                                 </div>
 
                                             </div>
@@ -125,44 +126,44 @@
                                                         <div class="pa-user__worktime-content">
                                                             <div class="pa-user__worktime-item">
                                                                 <label>
-                                                                    <span>Пн</span>
-                                                                    <input type="checkbox" checked>
-                                                                </label>
-                                                            </div>
-                                                            <div class="pa-user__worktime-item">
-                                                                <label>
                                                                     <span>Вт</span>
-                                                                    <input type="checkbox" checked>
+                                                                    <input type="checkbox" name="mon" {{ $user[0]->userData->mon == 1 ? 'checked' : '' }}>
                                                                 </label>
                                                             </div>
                                                             <div class="pa-user__worktime-item">
                                                                 <label>
                                                                     <span>Ср</span>
-                                                                    <input type="checkbox" checked>
+                                                                    <input type="checkbox" name="tue" {{ $user[0]->userData->tue == 1 ? 'checked' : '' }}>
                                                                 </label>
                                                             </div>
                                                             <div class="pa-user__worktime-item">
                                                                 <label>
                                                                     <span>Чт</span>
-                                                                    <input type="checkbox" checked>
+                                                                    <input type="checkbox" name="wed" {{ $user[0]->userData->wed == 1 ? 'checked' : '' }}>
                                                                 </label>
                                                             </div>
                                                             <div class="pa-user__worktime-item">
                                                                 <label>
                                                                     <span>Пт</span>
-                                                                    <input type="checkbox" checked>
+                                                                    <input type="checkbox" name="thu" {{ $user[0]->userData->thu == 1 ? 'checked' : '' }}>
                                                                 </label>
                                                             </div>
                                                             <div class="pa-user__worktime-item">
                                                                 <label>
                                                                     <span>Сб</span>
-                                                                    <input type="checkbox" checked>
+                                                                    <input type="checkbox" name="fri" {{ $user[0]->userData->fri == 1 ? 'checked' : '' }}>
                                                                 </label>
                                                             </div>
                                                             <div class="pa-user__worktime-item">
                                                                 <label>
                                                                     <span>Вс</span>
-                                                                    <input type="checkbox" checked>
+                                                                    <input type="checkbox" name="sut" {{ $user[0]->userData->sut == 1 ? 'checked' : '' }}>
+                                                                </label>
+                                                            </div>
+                                                            <div class="pa-user__worktime-item">
+                                                                <label>
+                                                                    <span>Пн</span>
+                                                                    <input type="checkbox" name="sun" {{ $user[0]->userData->sun == 1 ? 'checked' : '' }}>
                                                                 </label>
                                                             </div>
                                                         </div>

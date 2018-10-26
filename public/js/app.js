@@ -48071,7 +48071,6 @@ $('.pa-user__price-add').click(function () {
 
 // click tag
 $('.pa-tag').click(function () {
-  // $(this).parent().find('.pa-tag').removeClass('pa-tag--active');
   $(this).toggleClass('pa-tag--active');
 });
 
@@ -48665,7 +48664,7 @@ module.exports = function( grunt ) {
 /* 47 */
 /***/ (function(module, exports) {
 
-module.exports = {"_args":[["jquery.maskedinput@1.4.1","/opt/lampp/htdocs/zakazfotografa.loc"]],"_from":"jquery.maskedinput@1.4.1","_id":"jquery.maskedinput@1.4.1","_inBundle":false,"_integrity":"sha1-Pqj0zcTq/Oc1TCe2anPQ9E3vwyc=","_location":"/jquery.maskedinput","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"jquery.maskedinput@1.4.1","name":"jquery.maskedinput","escapedName":"jquery.maskedinput","rawSpec":"1.4.1","saveSpec":null,"fetchSpec":"1.4.1"},"_requiredBy":["/"],"_resolved":"https://registry.npmjs.org/jquery.maskedinput/-/jquery.maskedinput-1.4.1.tgz","_spec":"1.4.1","_where":"/opt/lampp/htdocs/zakazfotografa.loc","author":{"name":"Josh Bush","url":"digitalbush.com"},"bugs":{"url":"https://github.com/excellalabs/jquery.maskedinput/issues"},"description":"jQuery Masked Input Plugin","devDependencies":{"grunt":"0.4.x","grunt-contrib-jasmine":"0.5.x","grunt-contrib-uglify":"0.2.x","grunt-contrib-watch":"0.5.x","grunt-nuget":"^0.1.4"},"homepage":"https://github.com/excellalabs/jquery.maskedinput#readme","keywords":["jQuery","Masked","Input","Plugin"],"license":"MIT","main":"gruntfile.js","name":"jquery.maskedinput","repository":{"type":"git","url":"git+https://github.com/excellalabs/jquery.maskedinput.git"},"scripts":{"test":"grunt test"},"version":"1.4.1"}
+module.exports = {"_args":[["jquery.maskedinput@1.4.1","C:\\OSPanel\\domains\\zf"]],"_from":"jquery.maskedinput@1.4.1","_id":"jquery.maskedinput@1.4.1","_inBundle":false,"_integrity":"sha1-Pqj0zcTq/Oc1TCe2anPQ9E3vwyc=","_location":"/jquery.maskedinput","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"jquery.maskedinput@1.4.1","name":"jquery.maskedinput","escapedName":"jquery.maskedinput","rawSpec":"1.4.1","saveSpec":null,"fetchSpec":"1.4.1"},"_requiredBy":["/"],"_resolved":"https://registry.npmjs.org/jquery.maskedinput/-/jquery.maskedinput-1.4.1.tgz","_spec":"1.4.1","_where":"C:\\OSPanel\\domains\\zf","author":{"name":"Josh Bush","url":"digitalbush.com"},"bugs":{"url":"https://github.com/excellalabs/jquery.maskedinput/issues"},"description":"jQuery Masked Input Plugin","devDependencies":{"grunt":"0.4.x","grunt-contrib-jasmine":"0.5.x","grunt-contrib-uglify":"0.2.x","grunt-contrib-watch":"0.5.x","grunt-nuget":"^0.1.4"},"homepage":"https://github.com/excellalabs/jquery.maskedinput#readme","keywords":["jQuery","Masked","Input","Plugin"],"license":"MIT","main":"gruntfile.js","name":"jquery.maskedinput","repository":{"type":"git","url":"git+https://github.com/excellalabs/jquery.maskedinput.git"},"scripts":{"test":"grunt test"},"version":"1.4.1"}
 
 /***/ }),
 /* 48 */
