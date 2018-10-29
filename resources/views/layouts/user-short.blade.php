@@ -1,7 +1,7 @@
 <div class="user-short">
     <div class="user-short__sidebar">
         <a class="user-short__photo" href="/user-page.html" target="_blank">
-            <img src="{{ $user->userData->avatar }}" alt="{{ $user->userData->first_name . ' ' . $user->userData->last_name }}">
+            <img src="{{ $user->userData !== null ? $user->userData->avatar : ''}}" alt="{{ $user->userData !== null ? $user->userData->first_name . ' ' . $user->userData->last_name : ''}}">
         </a>
         <div class="user-short__rating">
             <div class="user-short__rating-item user-short__rating-item--plus">+4</div>
@@ -13,15 +13,15 @@
 
         <div class="user-short__top">
             <div class="user-short__info">
-                <a class="user-short__info-name" href="/user-page.html" target="_blank">{{ $user->userData->first_name . ' ' . $user->userData->last_name }}</a>
+                <a class="user-short__info-name" href="/user-page.html" target="_blank">{{ $user->userData !== null ? $user->userData->first_name . ' ' . $user->userData->last_name : ''}}</a>
                 <div class="user-short__info-age">20 лет</div>
             </div>
             <div class="user-short__price">
                 <div class="user-short__price-item">
-                    Мин заказ: <strong>{{ $user->userData->min_price . ' ' . $user->userData->currency }}</strong>
+                    Мин заказ: <strong>{{$user->userData !== null ? $user->userData->min_price . ' ' . $user->userData->currency : ''}}</strong>
                 </div>
                 <div class="user-short__price-item">
-                    Час работы: от <strong>{{ $user->userData->price_for_hour . ' ' . $user->userData->currency_h }}</strong>
+                    Час работы: от <strong>{{ $user->userData !== null ? $user->userData->price_for_hour . ' ' . $user->userData->currency_h : ''}}</strong>
                 </div>
             </div>
         </div>
@@ -36,24 +36,28 @@
         </div>
 
         <div class="user-short__about">
-            {{ $user->userData->about_me }}
+            {{ $user->userData !== null ? $user->userData->about_me : ''}}
         </div>
 
         <div class="tabs">
             <div class="tabs-nav">
                 <div class="tabs-nav__item tabs-nav__item--active">Все</div>
+                @if($user->userData !== null)
                 @foreach($user->bullet as $bullet)
                 <div class="tabs-nav__item">{{ $bullet->bullet }}</div>
                 @endforeach
+                    @endif
             </div>
             <div class="tabs-content">
                 <div class="tabs-content__item">
                     <div class="user-short__photos">
+                        @if($user->userData !== null)
                         @foreach($user->bullet as $bullet)
                         @foreach($bullet->photo as $photo)
                             <a class="user-short__photos-item js-photo-popup" href="{{ $photo->photo }}">
                                 <img src="{{ $photo->photo }}" alt="">
                             </a>
+                        @endforeach
                         @endforeach
                         @endforeach
                         <div class="user-short__photos-item user-short__photos-item-more">
@@ -62,6 +66,7 @@
                         </div>
                     </div>
                 </div>
+                @if($user->userData !== null)
                 @foreach($user->bullet as $bullet)
                 <div class="tabs-content__item">
                     <div class="user-short__photos">
@@ -73,6 +78,7 @@
                     </div>
                 </div>
                 @endforeach
+                    @endif
 
             </div>
         </div>
