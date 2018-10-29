@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Photo;
 use App\User;
 use App\UserData;
 use Illuminate\Http\Request;
@@ -14,52 +15,54 @@ class HomeController extends Controller
      *
      * @return void
      */
-//    public function __construct()
-//    {
-//        $this->middleware('auth');
-//    }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('home');
-    }
+
 
     public function personalInfo(){
-        $user = User::with('userData')->get();
-        //dd(auth()->user()->id);
+        $user = User::where('id', auth()->user()->id)->with('userData', 'bullet.photo')->get();
+        //dd($user);
         return view('photograph.personal_info', [
             'user' => $user
         ]);
     }
 
     public function storeUserInfo(Request $request){
-        //$user = User::find(auth()->user()->id);
         try{
             $file = Storage::disk('public')->put('\avatar' . '\/' . auth()->user()->id, $request->avatar);
         } catch (\Exception $e) {
         }
-
-        //dd(UserData::find(auth()->user()->id));
         if (UserData::find(auth()->user()->id) === null){
+            $request->merge([
+                'mon' => $request->has('mon') ? 1 : 0,
+                'tue' => $request->has('tue') ? 1 : 0,
+                'wed' => $request->has('wed') ? 1 : 0,
+                'thu' => $request->has('thu') ? 1 : 0,
+                'fri' => $request->has('fri') ? 1 : 0,
+                'sut' => $request->has('sut') ? 1 : 0,
+                'sun' => $request->has('sun') ? 1 : 0,
+            ]);
             $userData = UserData::create($request->all());
             $userData->avatar = Storage::url($file);
         } else {
             $userData = UserData::find(auth()->user()->id);
             $request->merge([
-                'wed' => $request->has('mon') ? 1 : 0,
-                'wed' => $request->has('tue') ? 1 : 0,
+                'mon' => $request->has('mon') ? 1 : 0,
+                'tue' => $request->has('tue') ? 1 : 0,
                 'wed' => $request->has('wed') ? 1 : 0,
-                'wed' => $request->has('thu') ? 1 : 0,
-                'wed' => $request->has('fri') ? 1 : 0,
-                'wed' => $request->has('sut') ? 1 : 0,
-                'thu' => $request->has('sun') ? 1 : 0,
+                'thu' => $request->has('thu') ? 1 : 0,
+                'fri' => $request->has('fri') ? 1 : 0,
+                'sut' => $request->has('sut') ? 1 : 0,
+                'sun' => $request->has('sun') ? 1 : 0,
             ]);
-            //dd($userData, $request->all());
             $userData->update($request->except('avatar'));
             if (isset($file)){
                 $userData->avatar = Storage::url($file);

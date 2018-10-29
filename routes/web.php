@@ -11,11 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'PagesController@index');
 Route::get('/photograph/info', 'HomeController@personalInfo')->name('photograph.info');
 Route::post('/photograph/save', 'HomeController@storeUserInfo')->name('photograph.save');
+
+Route::resource('/photo', 'PhotoController');
 
 Auth::routes();
 

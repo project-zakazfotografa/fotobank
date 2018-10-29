@@ -17,13 +17,17 @@ require('jquery.maskedinput');
 import 'jquery-ui/ui/widgets/datepicker';
 import 'jquery-ui/ui/widgets/sortable';
 
+import VuePikaday from '@enrian/vue-pikaday';
+Vue.use(VuePikaday);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+//Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('date-picker-component', require('./components/DatePickerComponent.vue'));
 
 const app = new Vue({
     el: '#app'

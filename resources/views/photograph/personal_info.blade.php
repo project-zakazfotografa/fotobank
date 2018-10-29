@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 @section('content')
 <div class="page-container">
 
@@ -38,17 +38,29 @@
                                                         </div>
                                                     </label>
                                                 </div>
-
+                                                <script>
+                                                    $( function() {
+                                                        $( "#pa-birthday" ).datepicker();
+                                                        $.datepicker.setDefaults({
+                                                            showOn: "both",
+                                                            buttonImageOnly: true,
+                                                            buttonImage: "calendar.gif",
+                                                            buttonText: "Calendar"
+                                                        });
+                                                    } );
+                                                </script>
                                                 <div class="pa-user__info">
                                                     <input class="pa-input" name="first_name" type="text" placeholder="Имя" value="{{ $user[0]->userData !== null ? $user[0]->userData->first_name : '' }}">
                                                     <input class="pa-input" type="text" placeholder="Фамилия" name="last_name" value="{{ $user[0]->userData !== null ? $user[0]->userData->last_name : '' }}">
                                                     <div class="pa-user__birthday">
-                                                        <input id="pa-birthday" class="pa-input pa-user__birthday" type="text" name="birth_date" placeholder="Дата рождения" value="{{ $user[0]->userData !== null ? $user[0]->userData->birth_date : '' }}">
+                                                        {{--<input id="pa-birthday" class="pa-input pa-user__birthday" type="text" name="birth_date" placeholder="Дата рождения" value="{{ $user[0]->userData !== null ? $user[0]->userData->birth_date : '' }}">--}}
+                                                        {{--<input id="pa-birthday" class="pa-input pa-user__birthday" type="text" name="birth_date" placeholder="Дата рождения" value="{{ $user[0]->userData !== null ? $user[0]->userData->birth_date : '' }}">--}}
+                                                        <input id="pa-birthday" type="date" name="birth_date" placeholder="Дата рождения" value="{{ $user[0]->userData !== null ? $user[0]->userData->birth_date : '' }}">
                                                     </div>
                                                 </div>
                                                 <div class="pa-user__experience">
                                                     <span>Опыт, лет</span>
-                                                    <input class="pa-input" type="text" name="experience" value="0">
+                                                    <input class="pa-input" type="text" name="experience" value="{{ $user[0]->userData !== null ? $user[0]->userData->experience : 0}}">
                                                 </div>
 
                                             </div>
@@ -115,10 +127,10 @@
                                                         <span class="pa-user__city-radius-text">Показывать заявки в радиусе: </span>
                                                         <select class="pa-select" name="show_orders_distance">
                                                             <option selected value="1">1 км</option>
-                                                            <option value="2">2 км</option>
-                                                            <option value="3">3 км</option>
-                                                            <option value="4">4 км</option>
-                                                            <option value="5">5 км</option>
+                                                            <option value="2" {{ $user[0]->userData !== null && $user[0]->userData->show_orders_distance == 2 ? 'selected' : '' }}>2 км</option>
+                                                            <option value="3" {{ $user[0]->userData !== null && $user[0]->userData->show_orders_distance == 3 ? 'selected' : '' }}>3 км</option>
+                                                            <option value="4" {{ $user[0]->userData !== null && $user[0]->userData->show_orders_distance == 4 ? 'selected' : '' }}>4 км</option>
+                                                            <option value="5" {{ $user[0]->userData !== null && $user[0]->userData->show_orders_distance == 5 ? 'selected' : '' }}>5 км</option>
                                                         </select>
                                                     </div>
                                                     <div class="pa-user__worktime">
@@ -126,44 +138,72 @@
                                                         <div class="pa-user__worktime-content">
                                                             <div class="pa-user__worktime-item">
                                                                 <label>
-                                                                    <span>Вт</span>
+                                                                    <span>Пн</span>
+                                                                    @if($user[0]->userData !== null)
                                                                     <input type="checkbox" name="mon" {{ $user[0]->userData->mon == 1 ? 'checked' : '' }}>
+                                                                        @else
+                                                                        <input type="checkbox" name="mon">
+                                                                        @endif
+                                                                </label>
+                                                            </div>
+                                                            <div class="pa-user__worktime-item">
+                                                                <label>
+                                                                    <span>Вт</span>
+                                                                    @if($user[0]->userData !== null)
+                                                                    <input type="checkbox" name="tue" {{ $user[0]->userData->tue == 1 ? 'checked' : '' }}>
+                                                                    @else
+                                                                    <input type="checkbox" name="tue">
+                                                                        @endif
                                                                 </label>
                                                             </div>
                                                             <div class="pa-user__worktime-item">
                                                                 <label>
                                                                     <span>Ср</span>
-                                                                    <input type="checkbox" name="tue" {{ $user[0]->userData->tue == 1 ? 'checked' : '' }}>
+                                                                    @if($user[0]->userData !== null)
+                                                                    <input type="checkbox" name="wed" {{ $user[0]->userData->wed == 1 ? 'checked' : '' }}>
+                                                                    @else
+                                                                    <input type="checkbox" name="wed">
+                                                                        @endif
                                                                 </label>
                                                             </div>
                                                             <div class="pa-user__worktime-item">
                                                                 <label>
                                                                     <span>Чт</span>
-                                                                    <input type="checkbox" name="wed" {{ $user[0]->userData->wed == 1 ? 'checked' : '' }}>
+                                                                    @if($user[0]->userData !== null)
+                                                                    <input type="checkbox" name="thu" {{ $user[0]->userData->thu == 1 ? 'checked' : '' }}>
+                                                                    @else
+                                                                    <input type="checkbox" name="thu">
+                                                                        @endif
                                                                 </label>
                                                             </div>
                                                             <div class="pa-user__worktime-item">
                                                                 <label>
                                                                     <span>Пт</span>
-                                                                    <input type="checkbox" name="thu" {{ $user[0]->userData->thu == 1 ? 'checked' : '' }}>
+                                                                    @if($user[0]->userData !== null)
+                                                                    <input type="checkbox" name="fri" {{ $user[0]->userData->fri == 1 ? 'checked' : '' }}>
+                                                                    @else
+                                                                    <input type="checkbox" name="fri">
+                                                                        @endif
                                                                 </label>
                                                             </div>
                                                             <div class="pa-user__worktime-item">
                                                                 <label>
                                                                     <span>Сб</span>
-                                                                    <input type="checkbox" name="fri" {{ $user[0]->userData->fri == 1 ? 'checked' : '' }}>
+                                                                    @if($user[0]->userData !== null)
+                                                                    <input type="checkbox" name="sut" {{ $user[0]->userData->sut == 1 ? 'checked' : '' }}>
+                                                                    @else
+                                                                    <input type="checkbox" name="sut">
+                                                                        @endif
                                                                 </label>
                                                             </div>
                                                             <div class="pa-user__worktime-item">
                                                                 <label>
                                                                     <span>Вс</span>
-                                                                    <input type="checkbox" name="sut" {{ $user[0]->userData->sut == 1 ? 'checked' : '' }}>
-                                                                </label>
-                                                            </div>
-                                                            <div class="pa-user__worktime-item">
-                                                                <label>
-                                                                    <span>Пн</span>
+                                                                    @if($user[0]->userData !== null)
                                                                     <input type="checkbox" name="sun" {{ $user[0]->userData->sun == 1 ? 'checked' : '' }}>
+                                                                    @else
+                                                                    <input type="checkbox" name="sun">
+                                                                        @endif
                                                                 </label>
                                                             </div>
                                                         </div>
@@ -187,13 +227,13 @@
                                                                 </label>
                                                             </div>
                                                             <div class="pa-user__price-count">
-                                                                <input class="pa-input" name="min_price" type="text">
+                                                                <input class="pa-input" name="min_price" type="text" value="{{ $user[0]->userData !== null ? $user[0]->userData->min_price : '' }}">
                                                             </div>
                                                             <div class="pa-user__price-pay">
-                                                                <select class="pa-select">
-                                                                    <option>Руб</option>
-                                                                    <option>Руб/услуга</option>
-                                                                    <option>Руб/час</option>
+                                                                <select class="pa-select" name="currency">
+                                                                    <option value="руб" {{ $user[0]->userData !== null && $user[0]->userData->currency == 'руб' ? 'selected' : '' }}>Руб</option>
+                                                                    <option value="руб / услуга" {{ $user[0]->userData !== null && $user[0]->userData->currency == 'руб / услуга' ? 'selected' : '' }}>Руб/услуга</option>
+                                                                    <option value="руб / час" {{ $user[0]->userData !== null && $user[0]->userData->currency == 'руб / час' ? 'selected' : '' }}>Руб/час</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -205,13 +245,13 @@
                                                                 </label>
                                                             </div>
                                                             <div class="pa-user__price-count">
-                                                                <input class="pa-input" type="text" value="1500">
+                                                                <input class="pa-input" type="text" name="price_for_hour" value="{{ $user[0]->userData !== null ? $user[0]->userData->price_for_hour : '' }}">
                                                             </div>
                                                             <div class="pa-user__price-pay">
-                                                                <select class="pa-select">
-                                                                    <option>Руб</option>
-                                                                    <option>Руб/услуга</option>
-                                                                    <option>Руб/час</option>
+                                                                <select class="pa-select" name="currency_h">
+                                                                    <option value="руб" {{ $user[0]->userData !== null && $user[0]->userData->currency_h == 'руб' ? 'selected' : '' }}>Руб</option>
+                                                                    <option value="руб / услуга" {{ $user[0]->userData !== null && $user[0]->userData->currency_h == 'руб / услуга' ? 'selected' : '' }}>Руб/услуга</option>
+                                                                    <option value="руб / час" {{ $user[0]->userData !== null && $user[0]->userData->currency_h == 'руб / час' ? 'selected' : '' }}>Руб/час</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -334,15 +374,16 @@
                                                 <div class="user-page__portfolio-content">
                                                     <div class="user-page__block-caption">Фотографии</div>
                                                     <div class="pa-user__portfolio">
+
+
+                                                        @if($user[0]->bullet !== null && $user[0]->bullet[0]->photo !== null)
+                                                        @foreach($user[0]->bullet[0]->photo as $photo)
                                                         <div class="pa-user__portfolio-item pa-item-action">
-                                                            <img src="https://natworld.info/wp-content/uploads/2018/01/%D0%A1%D0%BE%D1%87%D0%B8%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BD%D0%B0-%D1%82%D0%B5%D0%BC%D1%83-%D0%9F%D1%80%D0%B8%D1%80%D0%BE%D0%B4%D0%B0.jpeg"
-                                                              alt="">
+                                                            <img src="{{ asset($photo->photo) }}" alt="">
                                                             <div class="pa-item-icon del-icon"><span>+</span></div>
                                                         </div>
-                                                        <div class="pa-user__portfolio-item pa-item-action">
-                                                            <img src="http://nesiditsa.ru/wp-content/uploads/2012/07/Priroda-Valaama.jpg" alt="">
-                                                            <div class="pa-item-icon del-icon"><span>+</span></div>
-                                                        </div>
+                                                        @endforeach
+                                                        @endif
                                                         <div class="pa-user__portfolio-item pa-user__portfolio-item-add" data-toggle="modal" data-target="#add-photo">
                                                             <div class="pa-item-icon add-icon"><span>+</span></div>
                                                         </div>
@@ -393,7 +434,7 @@
                     <!-- /pa-menu__tabs-item -->
                     <div class="pa-menu__tabs-item">
                         <div class="pa-orders">
-                            <h3>Находится в стадии разработки</h2>
+                            <h3>Находится в стадии разработки</h3>
                         </div>
                         <!-- /pa-orders -->
                     </div>

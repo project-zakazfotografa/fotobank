@@ -35,4 +35,8 @@ class User extends Authenticatable
     public function tag(){
         return $this->belongsToMany(Tag::class, 'tag_user');
     }
+
+    public function bullet(){
+        return $this->hasMany(Bullet::class);
+    }
 }

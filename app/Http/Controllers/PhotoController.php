@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Photo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\File;
+use Illuminate\Http\UploadedFile;
+use Intervention\Image\Facades\Image;
 
 class PhotoController extends Controller
 {
@@ -35,7 +39,16 @@ class PhotoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $photo = new Photo();
+        $photo->bullet_id = 1;
+        try{
+            $file = Storage::disk('public')->put('/photos/' . auth()->user()->id, $request->photo);
+            $photo->photo = Storage::url($file);
+        } catch (\Exception $e) {
+        }
+        $photo->save();
+
+        return redirect()->route('photograph.info');
     }
 
     /**
