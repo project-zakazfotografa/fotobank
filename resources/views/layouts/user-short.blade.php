@@ -59,7 +59,7 @@
                             </a>
                         @endforeach
                         @endforeach
-                        @endforeach
+                        @endif
                         <div class="user-short__photos-item user-short__photos-item-more">
                             <img src="http://katyaburg.ru/sites/default/files/pictures/krasota_prirody/osen_osennyaya_priroda_01.jpg" alt="">
                             <div class="user-short__photos-item-more-count">+12</div>
