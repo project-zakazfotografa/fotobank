@@ -369,14 +369,12 @@
                                             </div>
                                             <!-- /user-page__price -->
 
-
                                             <div class="user-page__portfolio user-page__block">
                                                 <div class="user-page__portfolio-content">
                                                     <div class="user-page__block-caption">Фотографии</div>
                                                     <div class="pa-user__portfolio">
 
-
-                                                        @if($user[0]->bullet !== null && $user[0]->bullet[0]->photo !== null)
+                                                        @if(empty($user[0]->bullet[0]) === false)
                                                         @foreach($user[0]->bullet[0]->photo as $photo)
                                                         <div class="pa-user__portfolio-item pa-item-action">
                                                             <img src="{{ asset($photo->photo) }}" alt="">
