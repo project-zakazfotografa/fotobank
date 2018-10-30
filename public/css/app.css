@@ -12161,7 +12161,7 @@ ul {
 }
 
 .filter-list {
-  max-height: 193px;
+  max-height: 175px;
   overflow: hidden;
   -webkit-transition: .3s;
   transition: .3s;
@@ -12595,7 +12595,6 @@ ul {
 
 .add-photo .modal-content {
   min-width: 600px;
-  height: 300px;
 }
 
 .add-photo .modal-body {
@@ -12603,7 +12602,7 @@ ul {
   height: 100%;
 }
 
-.add-photo__content {
+.add-photo__form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -12618,10 +12617,12 @@ ul {
   border-radius: 3px;
 }
 
-.add-photo__upload label {
-  margin-bottom: 0;
-  height: 100%;
+.add-photo__upload-label {
+  position: relative;
+  margin-bottom: 1rem;
+  width: 100%;
   cursor: pointer;
+  z-index: 5;
 }
 
 .add-photo__upload-input {
@@ -12639,6 +12640,21 @@ ul {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  z-index: 3;
+}
+
+.add-photo__upload-text {
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.add-photo__upload-desc textarea {
+  width: 100%;
+  height: 100px;
 }
 
 .add-photo__tags .pa-tag {
@@ -13510,12 +13526,16 @@ ul {
 }
 
 .pa-user__price-count {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   margin-left: auto;
-  margin-right: 35px;
-  width: 52px;
+  margin-right: 2rem;
 }
 
 .pa-user__price-count .pa-input {
+  width: 52px;
+  margin-right: 0.5rem;
   height: 27px;
   background: #EAEAEA;
   padding-left: 0;
@@ -13524,6 +13544,10 @@ ul {
 
 .pa-user__price-count .pa-input:disabled {
   background: #CCCCCC;
+}
+
+.pa-user__price-pay {
+  width: 92px;
 }
 
 .pa-user__price-pay .pa-select {

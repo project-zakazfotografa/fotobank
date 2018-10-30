@@ -55,7 +55,7 @@
                                                     <div class="pa-user__birthday">
                                                         {{--<input id="pa-birthday" class="pa-input pa-user__birthday" type="text" name="birth_date" placeholder="Дата рождения" value="{{ $user[0]->userData !== null ? $user[0]->userData->birth_date : '' }}">--}}
                                                         {{--<input id="pa-birthday" class="pa-input pa-user__birthday" type="text" name="birth_date" placeholder="Дата рождения" value="{{ $user[0]->userData !== null ? $user[0]->userData->birth_date : '' }}">--}}
-                                                        <input id="pa-birthday" type="date" name="birth_date" placeholder="Дата рождения" value="{{ $user[0]->userData !== null ? $user[0]->userData->birth_date : '' }}">
+                                                        <input id="pa-birthday" class="pa-input" type="date" name="birth_date" placeholder="Дата рождения" value="{{ $user[0]->userData !== null ? $user[0]->userData->birth_date : '' }}">
                                                     </div>
                                                 </div>
                                                 <div class="pa-user__experience">
@@ -222,38 +222,26 @@
                                                         <div class="pa-user__price-item">
                                                             <div class="pa-user__price-name">
                                                                 <label>
-                                                                    <input type="checkbox" checked>
                                                                     <span>Минимальный заказ от</span>
                                                                 </label>
                                                             </div>
                                                             <div class="pa-user__price-count">
                                                                 <input class="pa-input" name="min_price" type="text" value="{{ $user[0]->userData !== null ? $user[0]->userData->min_price : '' }}">
+                                                                <span>руб.</span>
                                                             </div>
-                                                            <div class="pa-user__price-pay">
-                                                                <select class="pa-select" name="currency">
-                                                                    <option value="руб" {{ $user[0]->userData !== null && $user[0]->userData->currency == 'руб' ? 'selected' : '' }}>Руб</option>
-                                                                    <option value="руб / услуга" {{ $user[0]->userData !== null && $user[0]->userData->currency == 'руб / услуга' ? 'selected' : '' }}>Руб/услуга</option>
-                                                                    <option value="руб / час" {{ $user[0]->userData !== null && $user[0]->userData->currency == 'руб / час' ? 'selected' : '' }}>Руб/час</option>
-                                                                </select>
-                                                            </div>
+                                                            <div class="pa-user__price-pay"></div>
                                                         </div>
                                                         <div class="pa-user__price-item">
                                                             <div class="pa-user__price-name">
                                                                 <label>
-                                                                    <input type="checkbox" checked>
                                                                     <span>Час работы от</span>
                                                                 </label>
                                                             </div>
                                                             <div class="pa-user__price-count">
                                                                 <input class="pa-input" type="text" name="price_for_hour" value="{{ $user[0]->userData !== null ? $user[0]->userData->price_for_hour : '' }}">
+                                                                <span>руб.</span>
                                                             </div>
-                                                            <div class="pa-user__price-pay">
-                                                                <select class="pa-select" name="currency_h">
-                                                                    <option value="руб" {{ $user[0]->userData !== null && $user[0]->userData->currency_h == 'руб' ? 'selected' : '' }}>Руб</option>
-                                                                    <option value="руб / услуга" {{ $user[0]->userData !== null && $user[0]->userData->currency_h == 'руб / услуга' ? 'selected' : '' }}>Руб/услуга</option>
-                                                                    <option value="руб / час" {{ $user[0]->userData !== null && $user[0]->userData->currency_h == 'руб / час' ? 'selected' : '' }}>Руб/час</option>
-                                                                </select>
-                                                            </div>
+                                                            <div class="pa-user__price-pay"></div>
                                                         </div>
 
                                                     </div>
@@ -275,11 +263,12 @@
                                                             </div>
                                                             <div class="pa-user__price-count">
                                                                 <input class="pa-input" type="text" disabled>
+                                                                <span>руб.</span>
                                                             </div>
                                                             <div class="pa-user__price-pay">
                                                                 <select class="pa-select">
-                                                                    <option selected>Руб/услуга</option>
-                                                                    <option>Руб/час</option>
+                                                                    <option selected>услуга</option>
+                                                                    <option>час</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -298,11 +287,12 @@
                                                             </div>
                                                             <div class="pa-user__price-count">
                                                                 <input class="pa-input" type="text" value="1500">
+                                                                <span>руб.</span>
                                                             </div>
                                                             <div class="pa-user__price-pay">
                                                                 <select class="pa-select">
-                                                                    <option selected>Руб/услуга</option>
-                                                                    <option>Руб/час</option>
+                                                                    <option selected>услуга</option>
+                                                                    <option>час</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -321,11 +311,12 @@
                                                             </div>
                                                             <div class="pa-user__price-count">
                                                                 <input class="pa-input" type="text" value="250">
+                                                                <span>руб.</span>
                                                             </div>
                                                             <div class="pa-user__price-pay">
                                                                 <select class="pa-select">
-                                                                    <option>Руб/услуга</option>
-                                                                    <option selected>Руб/час</option>
+                                                                    <option selected>услуга</option>
+                                                                    <option>час</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -344,11 +335,12 @@
                                                             </div>
                                                             <div class="pa-user__price-count">
                                                                 <input class="pa-input" type="text" value="">
+                                                                <span>руб.</span>
                                                             </div>
                                                             <div class="pa-user__price-pay">
                                                                 <select class="pa-select">
-                                                                    <option>Руб/услуга</option>
-                                                                    <option selected>Руб/час</option>
+                                                                    <option selected>услуга</option>
+                                                                    <option>час</option>
                                                                 </select>
                                                             </div>
                                                         </div>

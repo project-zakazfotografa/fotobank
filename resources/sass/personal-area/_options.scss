@@ -177,11 +177,13 @@
       }
 
       &-count {
+        display: flex;
         margin-left: auto;
-        margin-right: 35px;
-        width: 52px;
+        margin-right: 2rem;
 
         .pa-input {
+          width: 52px;
+          margin-right: 0.5rem;
           height: 27px;
           background: #EAEAEA;
           padding-left: 0;
@@ -194,6 +196,7 @@
       }
 
       &-pay {
+        width: 92px;
         .pa-select {
           height: 27px;
           font-size: 14px;

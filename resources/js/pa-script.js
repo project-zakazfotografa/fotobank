@@ -30,13 +30,6 @@ $('.user-page__price').on("DOMNodeInserted", function (event) {
   });
 });
 
-$(function() {
-  $("#pa-birthday").datepicker({
-    changeMonth: true,
-    changeYear: true,
-    yearRange: '1950:2018',
-  });
-});
 $(".sortable").sortable({});
 
 
