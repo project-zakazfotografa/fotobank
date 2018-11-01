@@ -41,6 +41,21 @@ $('.pa-user__price-add').click(function () {
 
 
 // click tag
-$('.pa-tag').click(function () {
-  $(this).toggleClass('pa-tag--active');
+$('.pa-tag label').click(function () {
+  $(this).parent().addClass('pa-tag--active');
+  // $(this).toggleClass('test');
+});
+
+$('.pa-tag label').click(function () {
+
+  var paTagInput = $(this).find('input');
+
+  $(paTagInput).change(function () {
+    if ($(this).is(":checked")) {
+      $(this).closest('.pa-tag').addClass('pa-tag--active');
+    } else {
+      $(this).closest('.pa-tag').removeClass('pa-tag--active');
+    }
+  });
+
 });

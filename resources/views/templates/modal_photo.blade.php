@@ -19,10 +19,18 @@
 
                     </div>
                     <div class="add-photo__tags">
-                        <div class="pa-tag">Семейная</div>
-                        <div class="pa-tag">С животными</div>
-                        <div class="pa-tag">Свадебная</div>
-                        <div class="pa-tag">Портрет</div>
+                        <div class="pa-tag">
+                          <label class="pa-tag__label">
+                            <input class="pa-tag__checkbox" type="checkbox" name="" value="">
+                            <span>Семейная</span>
+                          </label>
+                        </div>
+                        <div class="pa-tag">
+                          <label class="pa-tag__label">
+                            <input class="pa-tag__checkbox" type="checkbox" name="" value="">
+                            <span>Портрет</span>
+                          </label>
+                        </div>
                     </div>
                     </form>
                 </div>
