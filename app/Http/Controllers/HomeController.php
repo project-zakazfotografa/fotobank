@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Bullet;
 use App\Photo;
 use App\User;
 use App\UserData;
@@ -29,9 +30,11 @@ class HomeController extends Controller
 
     public function personalInfo(){
         $user = User::where('id', auth()->user()->id)->with('userData', 'bullet.photo')->get();
-        //dd($user);
+        $bullets = Bullet::all();
+        //dd($user, $bullets);
         return view('photograph.personal_info', [
-            'user' => $user
+            'user' => $user,
+            'bullets' => $bullets,
         ]);
     }
 

@@ -18,7 +18,7 @@ class Bullet extends Model
     ];
 
     public function user(){
-        return $this->belongsTo(User::class);
+        return $this->belongsToMany(Bullet::class);
     }
 
     public function photo(){

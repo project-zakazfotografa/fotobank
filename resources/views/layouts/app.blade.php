@@ -68,7 +68,6 @@
         </main>
     <footer class="footer">
         @include('layouts.footer')
-        @include('templates.modal_photo')
     </footer>
     </div>
 </body>

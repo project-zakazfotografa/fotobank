@@ -14,7 +14,7 @@
         <div class="user-short__top">
             <div class="user-short__info">
                 <a class="user-short__info-name" href="/user-page.html" target="_blank">{{ $user->userData !== null ? $user->userData->first_name . ' ' . $user->userData->last_name : ''}}</a>
-                <div class="user-short__info-age">20 лет</div>
+                <div class="user-short__info-age">{{ $user->userData !== null ? $user->userData->experience : ''}} лет</div>
             </div>
             <div class="user-short__price">
                 <div class="user-short__price-item">

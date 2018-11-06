@@ -10,8 +10,19 @@
                 <div class="pa-menu__nav">
                     <div class="pa-menu__nav-item pa-menu__nav-item--active">Настройки</div>
                     <div class="pa-menu__nav-item">Заявки</div>
-                    <a class="pa-menu__nav-item pa-menu__profile" href="/user-page.html">На сайт</a>
-                    <div class="pa-menu__nav-item pa-menu__exit">Выйти</div>
+                    <a class="pa-menu__nav-item pa-menu__profile" target="_blank" href="{{ route('main') }}">На сайт</a>
+                    <div class="pa-menu__nav-item pa-menu__exit">
+                        <a class="pa-menu__nav-item pa-menu__exit" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            Выйти
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+
+                    </div>
                 </div>
 
                 <div class="pa-menu__tabs-content">
@@ -229,7 +240,12 @@
                                                                 <input class="pa-input" name="min_price" type="text" value="{{ $user[0]->userData !== null ? $user[0]->userData->min_price : '' }}">
                                                                 <span>руб.</span>
                                                             </div>
-                                                            <div class="pa-user__price-pay"></div>
+                                                            <div class="pa-user__price-pay">
+                                                                <select class="pa-select" name="currency">
+                                                                    <option value="час" {{ $user[0]->userData !== null && $user[0]->userData->currency == 'час' ? 'selected' : '' }}>час</option>
+                                                                    <option value="услуга" {{ $user[0]->userData !== null && $user[0]->userData->currency == 'услуга' ? 'selected' : '' }}>услуга</option>
+                                                                </select>
+                                                            </div>
                                                         </div>
                                                         <div class="pa-user__price-item">
                                                             <div class="pa-user__price-name">
@@ -241,7 +257,12 @@
                                                                 <input class="pa-input" type="text" name="price_for_hour" value="{{ $user[0]->userData !== null ? $user[0]->userData->price_for_hour : '' }}">
                                                                 <span>руб.</span>
                                                             </div>
-                                                            <div class="pa-user__price-pay"></div>
+                                                            <div class="pa-user__price-pay">
+                                                                <select class="pa-select" name="currency_h">
+                                                                    <option value="час" {{ $user[0]->userData !== null && $user[0]->userData->currency_h == 'час' ? 'selected' : '' }}>час</option>
+                                                                    <option value="услуга" {{ $user[0]->userData !== null && $user[0]->userData->currency_h == 'услуга' ? 'selected' : '' }}>услуга</option>
+                                                                </select>
+                                                            </div>
                                                         </div>
 
                                                     </div>

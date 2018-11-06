@@ -37,6 +37,6 @@ class User extends Authenticatable
     }
 
     public function bullet(){
-        return $this->hasMany(Bullet::class);
+        return $this->belongsToMany(Bullet::class);
     }
 }

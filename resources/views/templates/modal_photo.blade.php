@@ -19,10 +19,11 @@
 
                     </div>
                     <div class="add-photo__tags">
-                        <div class="pa-tag">Семейная</div>
-                        <div class="pa-tag">С животными</div>
-                        <div class="pa-tag">Свадебная</div>
-                        <div class="pa-tag">Портрет</div>
+                        @if($bullets[0] !== null)
+                            @foreach($bullets as $bullet)
+                                <div class="pa-tag">{{ $bullet->bullet }}</div>
+                            @endforeach
+                            @endif
                     </div>
                     </form>
                 </div>
