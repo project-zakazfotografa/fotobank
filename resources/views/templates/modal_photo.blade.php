@@ -19,11 +19,16 @@
 
                     </div>
                     <div class="add-photo__tags">
-                        @if($bullets[0] !== null)
-                            @foreach($bullets as $bullet)
-                                <div class="pa-tag">{{ $bullet->bullet }}</div>
-                            @endforeach
+                        <div class="pa-tag">
+                            @if($bullets[0] !== null)
+                                @foreach($bullets as $bullet)
+                                  <label class="pa-tag__label">
+                                    <input class="pa-tag__checkbox" type="checkbox" name="bullets[]" value="{{ $bullet->id }}" id="{{ $bullet->id }}">
+                                    <span>{{ $bullet->bullet }}</span>
+                                  </label>
+                                @endforeach
                             @endif
+                        </div>
                     </div>
                     </form>
                 </div>

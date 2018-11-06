@@ -40,6 +40,8 @@ class PhotoController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request->all());
+
         $photo = new Photo();
         $record = new BulletUser();
         $record->user_id = auth()->user()->id;
