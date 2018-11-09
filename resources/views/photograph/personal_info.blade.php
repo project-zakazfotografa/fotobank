@@ -387,13 +387,13 @@
                                                     <div class="user-page__block-caption">Фотографии</div>
                                                     <div class="pa-user__portfolio">
 
-                                                        @if(empty($user[0]->bullet[0]) === false)
-                                                        @foreach($user[0]->bullet[0]->photo as $photo)
-                                                        <div class="pa-user__portfolio-item pa-item-action">
-                                                            <img src="{{ asset($photo->photo) }}" alt="">
-                                                            <div class="pa-item-icon del-icon"><span>+</span></div>
-                                                        </div>
-                                                        @endforeach
+                                                        @if(empty($user[0]->photo[0]) === false)
+                                                            @foreach($user[0]->photo as $photo)
+                                                                <div class="pa-user__portfolio-item pa-item-action">
+                                                                    <img src="{{ asset($photo->photo) }}" alt="{{ $photo->alt }}">
+                                                                    <div class="pa-item-icon del-icon"><span>+</span></div>
+                                                                </div>
+                                                            @endforeach
                                                         @endif
                                                         <div class="pa-user__portfolio-item pa-user__portfolio-item-add" data-toggle="modal" data-target="#add-photo">
                                                             <div class="pa-item-icon add-icon"><span>+</span></div>

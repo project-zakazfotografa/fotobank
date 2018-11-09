@@ -42,43 +42,49 @@
         <div class="tabs">
             <div class="tabs-nav">
                 <div class="tabs-nav__item tabs-nav__item--active">Все</div>
-                @if($user->userData !== null)
-                @foreach($user->bullet as $bullet)
-                <div class="tabs-nav__item">{{ $bullet->bullet }}</div>
-                @endforeach
-                    @endif
+                @foreach($user->bullet as $item)
+                <div class="tabs-nav__item">{{ $item->bullet }}</div>
+                    @endforeach
             </div>
             <div class="tabs-content">
                 <div class="tabs-content__item">
                     <div class="user-short__photos">
                         @if($user->userData !== null)
-                        @foreach($user->bullet as $bullet)
-                        @foreach($bullet->photo as $photo)
-                            <a class="user-short__photos-item js-photo-popup" href="{{ $photo->photo }}">
-                                <img src="{{ $photo->photo }}" alt="">
-                            </a>
-                        @endforeach
-                        @endforeach
+                            @foreach($user->bullet as $item)
+                                @foreach($item->photo as $photo)
+                                    @if($photo->user_id === $user->id)
+                                        <a class="user-short__photos-item js-photo-popup" href="{{ $photo->photo }}">
+                                            <img src="{{ $photo->photo }}" alt="">
+                                        </a>
+                                    @endif
+                                @endforeach
+                            @endforeach
                         @endif
-                        <div class="user-short__photos-item user-short__photos-item-more">
-                            <img src="http://katyaburg.ru/sites/default/files/pictures/krasota_prirody/osen_osennyaya_priroda_01.jpg" alt="">
-                            <div class="user-short__photos-item-more-count">+12</div>
-                        </div>
+                        @if(!empty($user->bullet))
+                            <div class="user-short__photos-item user-short__photos-item-more">
+                                <a href="{{ url('/photograph/' . $user->id) }}" target="_blank">
+                                    <img src="http://katyaburg.ru/sites/default/files/pictures/krasota_prirody/osen_osennyaya_priroda_01.jpg" alt="">
+                                    <div class="user-short__photos-item-more-count">+12</div>
+                                </a>
+                            </div>
+                            @endif
                     </div>
                 </div>
                 @if($user->userData !== null)
-                @foreach($user->bullet as $bullet)
-                <div class="tabs-content__item">
-                    <div class="user-short__photos">
-                        @foreach($bullet->photo as $photo)
-                        <a class="user-short__photos-item js-photo-popup" href="{{ $photo->photo }}">
-                            <img src="{{ $photo->photo }}" alt="">
-                        </a>
-                            @endforeach
-                    </div>
-                </div>
-                @endforeach
-                    @endif
+                    @foreach($user->bullet as $item)
+                        <div class="tabs-content__item">
+                            <div class="user-short__photos">
+                                @foreach($item->photo as $photo)
+                                    @if($photo->user_id === $user->id)
+                                        <a class="user-short__photos-item js-photo-popup" href="{{ $photo->photo }}">
+                                            <img src="{{ $photo->photo }}" alt="">
+                                        </a>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+                    @endforeach
+                 @endif
 
             </div>
         </div>

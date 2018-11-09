@@ -29,7 +29,7 @@ class HomeController extends Controller
 
 
     public function personalInfo(){
-        $user = User::where('id', auth()->user()->id)->with('userData', 'bullet.photo')->get();
+        $user = User::where('id', auth()->user()->id)->with('userData', 'photo')->get();
         $bullets = Bullet::all();
         //dd($user, $bullets);
         return view('photograph.personal_info', [

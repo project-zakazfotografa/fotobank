@@ -39,4 +39,8 @@ class User extends Authenticatable
     public function bullet(){
         return $this->belongsToMany(Bullet::class);
     }
+
+    public function photo(){
+        return $this->hasMany(Photo::class);
+    }
 }

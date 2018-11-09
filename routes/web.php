@@ -12,8 +12,10 @@
 */
 
 Route::get('/', 'PagesController@index')->name('main');
+Route::get('/photograph/{id}', 'PagesController@showPhotograph');
 Route::get('/photograph/info', 'HomeController@personalInfo')->name('photograph.info');
 Route::post('/photograph/save', 'HomeController@storeUserInfo')->name('photograph.save');
+
 
 Route::resource('/photo', 'PhotoController');
 

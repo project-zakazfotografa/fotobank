@@ -18,10 +18,10 @@ class Bullet extends Model
     ];
 
     public function user(){
-        return $this->belongsToMany(Bullet::class);
+        return $this->belongsToMany(User::class);
     }
 
     public function photo(){
-        return $this->hasMany(Photo::class);
+        return $this->belongsToMany(Photo::class)->withTimestamps();
     }
 }

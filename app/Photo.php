@@ -19,6 +19,16 @@ class Photo extends Model
     ];
 
     public function bullet(){
+        return $this->belongsToMany(Bullet::class)->withTimestamps();
+    }
+
+    public function user(){
         return $this->belongsTo(User::class);
     }
+
+    public function userBullet(){
+        return $this->with('bullet')->get();
+    }
+
+
 }

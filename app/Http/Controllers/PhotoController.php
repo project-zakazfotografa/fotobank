@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Bullet;
 use App\BulletUser;
 use App\Photo;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\File;
@@ -40,19 +42,22 @@ class PhotoController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        $user = User::findOrFail(auth()->user()->id);
 
-        $photo = new Photo();
-        $record = new BulletUser();
-        $record->user_id = auth()->user()->id;
-        $record->bullet_id = $request->bullet_id;
         try{
             $file = Storage::disk('public')->put('/photos/' . auth()->user()->id, $request->photo);
+            $photo = new Photo;
             $photo->photo = Storage::url($file);
+            $photo->user_id = auth()->user()->id;
+            $photo->save();
+
         } catch (\Exception $e) {
         }
-        $photo->save();
 
+        foreach ($request->input('bullets') as $bullet){
+            $photo->bullet()->attach($bullet);
+            $user->bullet()->attach($bullet);
+        }
         return redirect()->route('photograph.info');
     }
 
