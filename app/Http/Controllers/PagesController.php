@@ -22,10 +22,26 @@ class PagesController extends Controller
     }
 
     public function showPhotograph($id){
-        $user = User::findOrFail($id);
-
+        $user = User::with('userData', 'bullet.photo')->findOrFail($id);
+        //dd($user);
         return view('photograph.user_page', [
-            'users' => $user,
+            'user' => $user,
         ]);
+    }
+
+    public function bullets(){
+        $data = Bullet::all();
+        return $data;
+    }
+
+    public function addBullet(Request $request){
+        try{
+            Bullet::firstOrCreate(['bullet' => json_decode($request->input('bullet'))]);
+            $data = Bullet::all();
+            return $data;
+        }catch (\Exception $e){
+            return $e;
+        }
+
     }
 }

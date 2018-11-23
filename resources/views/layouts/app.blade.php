@@ -20,7 +20,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
+<div id="app">
         <header>
           @guest
             @include('layouts.header')
@@ -64,11 +64,13 @@
         {{--</nav>--}}
 
         <main>
-            @yield('content')
+
+             @yield('content')
+
         </main>
     <footer class="footer">
         @include('layouts.footer')
     </footer>
-    </div>
+</div>
 </body>
 </html>

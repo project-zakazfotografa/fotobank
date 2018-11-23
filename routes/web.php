@@ -23,3 +23,11 @@ Route::resource('/photo', 'PhotoController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+// CMS routes
+
+Route::get('/cms/login', 'Cms\CmsController@enter');
+Route::get('/cms/main', 'Cms\CmsController@cmsMain');
+Route::get('/cms/main/bullets', 'PagesController@bullets');
+Route::post('/cms/main/add-bullet', 'PagesController@addBullet');

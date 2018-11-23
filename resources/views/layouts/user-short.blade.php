@@ -1,6 +1,6 @@
 <div class="user-short">
     <div class="user-short__sidebar">
-        <a class="user-short__photo" href="/user-page.html" target="_blank">
+        <a class="user-short__photo" href="{{ url('/photograph/' . $user->id) }}" target="_blank">
             <img src="{{ $user->userData !== null ? $user->userData->avatar : ''}}" alt="{{ $user->userData !== null ? $user->userData->first_name . ' ' . $user->userData->last_name : ''}}">
         </a>
         <div class="user-short__rating">
@@ -13,7 +13,7 @@
 
         <div class="user-short__top">
             <div class="user-short__info">
-                <a class="user-short__info-name" href="/user-page.html" target="_blank">{{ $user->userData !== null ? $user->userData->first_name . ' ' . $user->userData->last_name : ''}}</a>
+                <a class="user-short__info-name" href="{{ url('/photograph/' . $user->id) }}" target="_blank">{{ $user->userData !== null ? $user->userData->first_name . ' ' . $user->userData->last_name : ''}}</a>
                 <div class="user-short__info-age">{{ $user->userData !== null ? $user->userData->experience : ''}} лет</div>
             </div>
             <div class="user-short__price">

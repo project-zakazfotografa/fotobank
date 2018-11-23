@@ -15,15 +15,17 @@
 
               <div class="user-page__user user-page__block">
                 <div class="user-page__user-pic">
-                  <img src="assets/img/user.jpg" alt="">
+                  <img src="{{ $user->userData->avatar }}" alt="">
                 </div>
                 <div class="user-page__user-name">
-                  <span>Алла Д.</span>
+                  <span>{{ $user->userData->first_name . ' ' . $user->userData->last_name }}</span>
                 </div>
                 <div class="user-page__user-info">
                   <ul>
-                    <li>Возраст: <span>20</span> лет</li>
-                    <li>Опыт: <span>6</span> лет</li>
+                      <?php $now = Carbon\Carbon::now() ?>
+
+                    <li>Возраст: <span>{{ $now->diffInYears($user->userData->birth_date) }}</span> лет</li>
+                    <li>Опыт: <span>{{ $user->userData->experience }}</span> лет</li>
                     <li></li>
                   </ul>
                 </div>
@@ -46,14 +48,14 @@
                 <div class="user-page__block-content">
                   <ul class="user-page__contacts-list">
                     <li class="user-page__contacts-item">
-                      <a class="user-page__contacts-link contact-tel--show" href="tel:+79991112223"><span class="contact-tel--hide">+7 999 111-22-23</span></a>
+                      <a class="user-page__contacts-link contact-tel--show" href="tel:{{ $user->userData->phone }}"><span class="contact-tel--hide">{{ $user->userData->phone }}</span></a>
                     </li>
                     <li class="user-page__contacts-item">
-                      <a class="user-page__contacts-link user-contacts-email" href="javascript:void(0);">myfreakingmail@gmail.com</a>
+                      <a class="user-page__contacts-link user-contacts-email" href="javascript:void(0);">{{ $user->userData->email }}</a>
                       <span class="user-contacts-email--show">Показать email</span>
                     </li>
                     <li class="user-page__contacts-item">
-                      <a class="user-page__contacts-link user-contacts-site" href="javascript:void(0);">myawesomesite.com</a>
+                      <a class="user-page__contacts-link user-contacts-site" href="javascript:void(0);">{{ $user->userData->site }}</a>
                       <span class="user-contacts-site--show">Показать сайт</span>
                     </li>
                     <!-- <li class="user-page__contacts-item">
@@ -83,10 +85,10 @@
               <div class="user-page__about user-page__block">
                 <div class="user-page__block-content">
                   <div class="user-page__about-price">
-                    <div class="user-page__about-price-item">Мин заказ: <strong>1500 руб</strong></div>
-                    <div class="user-page__about-price-item">Час работы: от <strong>500 руб</strong></div>
+                    <div class="user-page__about-price-item">Мин заказ: <strong>{{ $user->userData->min_price . ' ' . $user->userData->currency }}</strong></div>
+                    <div class="user-page__about-price-item">Час работы: от <strong>{{ $user->userData->price_for_hour . ' ' . $user->userData->currency_h }}</strong></div>
                   </div>
-                  <div class="user-page__about-text">72 символа Отличный фотограф! Руки откуда надо надо, интересные костюмы, уютная студия:)</div>
+                  <div class="user-page__about-text">{{ $user->userData->description }}</div>
                   <div class="user-page__features">
                     <div class="user-page__features-list">
                       <a class="user-page__features-item" href="javascript:void(0);">Есть фотостудия</a>
@@ -107,71 +109,71 @@
                   <div class="tabs">
                     <div class="tabs-nav">
                       <div class="tabs-nav__item tabs-nav__item--active">Все</div>
-                      <div class="tabs-nav__item">Портрет</div>
-                      <div class="tabs-nav__item">Семейная</div>
-                      <div class="tabs-nav__item">Аэросъемка</div>
+                        @foreach($user->bullet as $item)
+                            <div class="tabs-nav__item">{{ $item->bullet }}</div>
+                            @endforeach
                     </div>
 
                     <div class="tabs-content">
 
                       <div class="tabs-content__item">
                         <div class="user-page__portfolio-photos">
-                          <a class="user-page__portfolio-item js-photo-popup" href="https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg">
-                            <img src="https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg" alt="">
-                          </a>
-                          <a class="user-page__portfolio-item js-photo-popup" href="https://cdn.fishki.net/upload/post/201411/26/1334081/57542_trava_priroda_doroga_leto_1920x1200_wwwgdefonru.jpg">
-                            <img src="https://cdn.fishki.net/upload/post/201411/26/1334081/57542_trava_priroda_doroga_leto_1920x1200_wwwgdefonru.jpg" alt="">
-                          </a>
-                          <a class="user-page__portfolio-item js-photo-popup" href="https://i.5sfer.com/post/postImage/thumb-8ipwnn.jpg">
-                            <img src="https://i.5sfer.com/post/postImage/thumb-8ipwnn.jpg" alt="">
-                          </a>
-                          <a class="user-page__portfolio-item js-photo-popup" href="http://xn--80aao6anggb.xn--p1ai/assets/galleries/1581/14746738.jpg">
-                            <img src="http://xn--80aao6anggb.xn--p1ai/assets/galleries/1581/14746738.jpg" alt="">
-                          </a>
-                          <a class="user-page__portfolio-item js-photo-popup" href="https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg">
-                            <img src="https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg" alt="">
-                          </a>
-                          <a class="user-page__portfolio-item js-photo-popup" href="https://cdn.fishki.net/upload/post/201411/26/1334081/57542_trava_priroda_doroga_leto_1920x1200_wwwgdefonru.jpg">
-                            <img src="https://cdn.fishki.net/upload/post/201411/26/1334081/57542_trava_priroda_doroga_leto_1920x1200_wwwgdefonru.jpg" alt="">
-                          </a>
-                          <a class="user-page__portfolio-item js-photo-popup" href="https://i.5sfer.com/post/postImage/thumb-8ipwnn.jpg">
-                            <img src="https://i.5sfer.com/post/postImage/thumb-8ipwnn.jpg" alt="">
-                          </a>
-                          <div class="user-page__portfolio-item js-photo-popup photos-more" href="http://xn--80aao6anggb.xn--p1ai/assets/galleries/1581/14746738.jpg">
-                            <img src="http://xn--80aao6anggb.xn--p1ai/assets/galleries/1581/14746738.jpg" alt="">
-                            <div class="photos-more-count">+35</div>
-                          </div>
+                            @if($user->userData !== null)
+                                @foreach($user->bullet as $item)
+                                    @foreach($item->photo as $photo)
+                                        @if($photo->user_id === $user->id)
+                                          <a class="user-page__portfolio-item js-photo-popup" href="{{ $photo->photo }}" target="_blank">
+                                            <img src="{{ $photo->photo }}" alt="">
+                                          </a>
+                                        @endif
+                                    @endforeach
+                                @endforeach
+                            @endif
+                                @if(!empty($user->bullet))
+                                  <div class="user-page__portfolio-item js-photo-popup photos-more" href="http://xn--80aao6anggb.xn--p1ai/assets/galleries/1581/14746738.jpg">
+                                    <img src="http://xn--80aao6anggb.xn--p1ai/assets/galleries/1581/14746738.jpg" alt="">
+                                    <div class="photos-more-count">+35</div>
+                                  </div>
+                                @endif
                         </div>
                       </div>
-                      <div class="tabs-content__item">
-                        <div class="user-page__portfolio-photos">
-                          <a class="user-page__portfolio-item js-photo-popup" href="https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg">
-                            <img src="https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg" alt="">
-                          </a>
-                          <a class="user-page__portfolio-item js-photo-popup" href="https://i.5sfer.com/post/postImage/thumb-8ipwnn.jpg">
-                            <img src="https://i.5sfer.com/post/postImage/thumb-8ipwnn.jpg" alt="">
-                          </a>
-                          <a class="user-page__portfolio-item js-photo-popup" href="https://cdn.fishki.net/upload/post/201411/26/1334081/57542_trava_priroda_doroga_leto_1920x1200_wwwgdefonru.jpg">
-                            <img src="https://cdn.fishki.net/upload/post/201411/26/1334081/57542_trava_priroda_doroga_leto_1920x1200_wwwgdefonru.jpg" alt="">
-                          </a>
-                          <a class="user-page__portfolio-item js-photo-popup" href="http://xn--80aao6anggb.xn--p1ai/assets/galleries/1581/14746738.jpg">
-                            <img src="http://xn--80aao6anggb.xn--p1ai/assets/galleries/1581/14746738.jpg" alt="">
-                          </a>
-                          <a class="user-page__portfolio-item js-photo-popup" href="https://cdn.fishki.net/upload/post/201411/26/1334081/57542_trava_priroda_doroga_leto_1920x1200_wwwgdefonru.jpg">
-                            <img src="https://cdn.fishki.net/upload/post/201411/26/1334081/57542_trava_priroda_doroga_leto_1920x1200_wwwgdefonru.jpg" alt="">
-                          </a>
-                          <a class="user-page__portfolio-item js-photo-popup" href="https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg">
-                            <img src="https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg" alt="">
-                          </a>
-                          <a class="user-page__portfolio-item js-photo-popup" href="https://i.5sfer.com/post/postImage/thumb-8ipwnn.jpg">
-                            <img src="https://i.5sfer.com/post/postImage/thumb-8ipwnn.jpg" alt="">
-                          </a>
-                          <div class="user-page__portfolio-item js-photo-popup photos-more" href="http://xn--80aao6anggb.xn--p1ai/assets/galleries/1581/14746738.jpg">
-                            <img src="http://xn--80aao6anggb.xn--p1ai/assets/galleries/1581/14746738.jpg" alt="">
-                            <div class="photos-more-count">+35</div>
-                          </div>
-                        </div>
-                      </div>
+                        @if($user->userData !== null)
+                            @foreach($user->bullet as $item)
+                              <div class="tabs-content__item">
+                                <div class="user-page__portfolio-photos">
+                                    @foreach($item->photo as $photo)
+                                        @if($photo->user_id === $user->id)
+                                          <a class="user-page__portfolio-item js-photo-popup" href="{{ $photo->photo }}" target="_blank">
+                                            <img src="{{ $photo->photo }}" alt="">
+                                          </a>
+                                        @endif
+                                    @endforeach
+                                  {{--<a class="user-page__portfolio-item js-photo-popup" href="https://i.5sfer.com/post/postImage/thumb-8ipwnn.jpg">--}}
+                                    {{--<img src="https://i.5sfer.com/post/postImage/thumb-8ipwnn.jpg" alt="">--}}
+                                  {{--</a>--}}
+                                  {{--<a class="user-page__portfolio-item js-photo-popup" href="https://cdn.fishki.net/upload/post/201411/26/1334081/57542_trava_priroda_doroga_leto_1920x1200_wwwgdefonru.jpg">--}}
+                                    {{--<img src="https://cdn.fishki.net/upload/post/201411/26/1334081/57542_trava_priroda_doroga_leto_1920x1200_wwwgdefonru.jpg" alt="">--}}
+                                  {{--</a>--}}
+                                  {{--<a class="user-page__portfolio-item js-photo-popup" href="http://xn--80aao6anggb.xn--p1ai/assets/galleries/1581/14746738.jpg">--}}
+                                    {{--<img src="http://xn--80aao6anggb.xn--p1ai/assets/galleries/1581/14746738.jpg" alt="">--}}
+                                  {{--</a>--}}
+                                  {{--<a class="user-page__portfolio-item js-photo-popup" href="https://cdn.fishki.net/upload/post/201411/26/1334081/57542_trava_priroda_doroga_leto_1920x1200_wwwgdefonru.jpg">--}}
+                                    {{--<img src="https://cdn.fishki.net/upload/post/201411/26/1334081/57542_trava_priroda_doroga_leto_1920x1200_wwwgdefonru.jpg" alt="">--}}
+                                  {{--</a>--}}
+                                  {{--<a class="user-page__portfolio-item js-photo-popup" href="https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg">--}}
+                                    {{--<img src="https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg" alt="">--}}
+                                  {{--</a>--}}
+                                  {{--<a class="user-page__portfolio-item js-photo-popup" href="https://i.5sfer.com/post/postImage/thumb-8ipwnn.jpg">--}}
+                                    {{--<img src="https://i.5sfer.com/post/postImage/thumb-8ipwnn.jpg" alt="">--}}
+                                  {{--</a>--}}
+                                  <div class="user-page__portfolio-item js-photo-popup photos-more" href="http://xn--80aao6anggb.xn--p1ai/assets/galleries/1581/14746738.jpg">
+                                    <img src="http://xn--80aao6anggb.xn--p1ai/assets/galleries/1581/14746738.jpg" alt="">
+                                    <div class="photos-more-count">+35</div>
+                                  </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        @endif
                       <div class="tabs-content__item">
                         <div class="user-page__portfolio-photos">
                           <a class="user-page__portfolio-item js-photo-popup" href="https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg">
