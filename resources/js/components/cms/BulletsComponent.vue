@@ -28,7 +28,6 @@
         },
         created(){
             axios.get('/cms/main/bullets').then(response => {
-                console.log(response.data);
                 this.bullets = response.data;
             });
         },
@@ -37,9 +36,9 @@
                 axios.post('/cms/main/add-bullet', {
                     bullet: this.bullet,
                 }).then(response => {
-                    console.log(response.data);
                     this.bullets = response.data;
                 });
+                this.bullet = ''
             },
         }
     }

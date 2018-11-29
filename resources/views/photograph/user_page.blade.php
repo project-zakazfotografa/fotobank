@@ -91,10 +91,9 @@
                   <div class="user-page__about-text">{{ $user->userData->description }}</div>
                   <div class="user-page__features">
                     <div class="user-page__features-list">
-                      <a class="user-page__features-item" href="javascript:void(0);">Есть фотостудия</a>
-                      <a class="user-page__features-item" href="javascript:void(0);">Со светом</a>
-                      <a class="user-page__features-item" href="javascript:void(0);">Костюмы</a>
-                      <a class="user-page__features-item" href="javascript:void(0);">Мейк ап</a>
+                        @foreach($user->tag as $tag)
+                            <a class="user-page__features-item" href="javascript:void(0);">{{ $tag->name }}</a>
+                            @endforeach
                     </div>
                   </div>
 
@@ -148,24 +147,6 @@
                                           </a>
                                         @endif
                                     @endforeach
-                                  {{--<a class="user-page__portfolio-item js-photo-popup" href="https://i.5sfer.com/post/postImage/thumb-8ipwnn.jpg">--}}
-                                    {{--<img src="https://i.5sfer.com/post/postImage/thumb-8ipwnn.jpg" alt="">--}}
-                                  {{--</a>--}}
-                                  {{--<a class="user-page__portfolio-item js-photo-popup" href="https://cdn.fishki.net/upload/post/201411/26/1334081/57542_trava_priroda_doroga_leto_1920x1200_wwwgdefonru.jpg">--}}
-                                    {{--<img src="https://cdn.fishki.net/upload/post/201411/26/1334081/57542_trava_priroda_doroga_leto_1920x1200_wwwgdefonru.jpg" alt="">--}}
-                                  {{--</a>--}}
-                                  {{--<a class="user-page__portfolio-item js-photo-popup" href="http://xn--80aao6anggb.xn--p1ai/assets/galleries/1581/14746738.jpg">--}}
-                                    {{--<img src="http://xn--80aao6anggb.xn--p1ai/assets/galleries/1581/14746738.jpg" alt="">--}}
-                                  {{--</a>--}}
-                                  {{--<a class="user-page__portfolio-item js-photo-popup" href="https://cdn.fishki.net/upload/post/201411/26/1334081/57542_trava_priroda_doroga_leto_1920x1200_wwwgdefonru.jpg">--}}
-                                    {{--<img src="https://cdn.fishki.net/upload/post/201411/26/1334081/57542_trava_priroda_doroga_leto_1920x1200_wwwgdefonru.jpg" alt="">--}}
-                                  {{--</a>--}}
-                                  {{--<a class="user-page__portfolio-item js-photo-popup" href="https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg">--}}
-                                    {{--<img src="https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg" alt="">--}}
-                                  {{--</a>--}}
-                                  {{--<a class="user-page__portfolio-item js-photo-popup" href="https://i.5sfer.com/post/postImage/thumb-8ipwnn.jpg">--}}
-                                    {{--<img src="https://i.5sfer.com/post/postImage/thumb-8ipwnn.jpg" alt="">--}}
-                                  {{--</a>--}}
                                   <div class="user-page__portfolio-item js-photo-popup photos-more" href="http://xn--80aao6anggb.xn--p1ai/assets/galleries/1581/14746738.jpg">
                                     <img src="http://xn--80aao6anggb.xn--p1ai/assets/galleries/1581/14746738.jpg" alt="">
                                     <div class="photos-more-count">+35</div>
@@ -212,34 +193,36 @@
 
               <div class="user-page__price">
                 <div class="user-page__price-content">
-                  <div class="user-page__price-item">
-                    <div class="user-page__price-col1">Портретная съемка</div>
-                    <div class="user-page__price-col2">Бесплатно</div>
-                  </div>
-                  <div class="user-page__price-item">
-                    <div class="user-page__price-col1">Семейная съемка</div>
-                    <div class="user-page__price-col2">4 500 руб</div>
-                  </div>
-                  <div class="user-page__price-item">
-                    <div class="user-page__price-col1">Аэросъемка</div>
-                    <div class="user-page__price-col2">1 500 руб</div>
-                  </div>
-                  <div class="user-page__price-item">
-                    <div class="user-page__price-col1">Услуги визажиста</div>
-                    <div class="user-page__price-col2">по договоренности</div>
-                  </div>
-                  <div class="user-page__price-item">
-                    <div class="user-page__price-col1">Съемка животных</div>
-                    <div class="user-page__price-col2">2 500 руб</div>
-                  </div>
-                  <div class="user-page__price-item">
-                    <div class="user-page__price-col1">Групповая фотосессия</div>
-                    <div class="user-page__price-col2">4 500 руб</div>
-                  </div>
-                  <div class="user-page__price-item">
-                    <div class="user-page__price-col1">Свадебная фотосессия</div>
-                    <div class="user-page__price-col2">250 руб/час</div>
-                  </div>
+                    @foreach($user->servises as $servise)
+                      <div class="user-page__price-item">
+                        <div class="user-page__price-col1">{{ $servise->servise_name }}</div>
+                        <div class="user-page__price-col2">{{ $servise->cost . ' ' }} {{ $servise->type == 'час' ? 'руб/час' : 'руб' }}</div>
+                      </div>
+                    @endforeach
+                  {{--<div class="user-page__price-item">--}}
+                    {{--<div class="user-page__price-col1">Семейная съемка</div>--}}
+                    {{--<div class="user-page__price-col2">4 500 руб</div>--}}
+                  {{--</div>--}}
+                  {{--<div class="user-page__price-item">--}}
+                    {{--<div class="user-page__price-col1">Аэросъемка</div>--}}
+                    {{--<div class="user-page__price-col2">1 500 руб</div>--}}
+                  {{--</div>--}}
+                  {{--<div class="user-page__price-item">--}}
+                    {{--<div class="user-page__price-col1">Услуги визажиста</div>--}}
+                    {{--<div class="user-page__price-col2">по договоренности</div>--}}
+                  {{--</div>--}}
+                  {{--<div class="user-page__price-item">--}}
+                    {{--<div class="user-page__price-col1">Съемка животных</div>--}}
+                    {{--<div class="user-page__price-col2">2 500 руб</div>--}}
+                  {{--</div>--}}
+                  {{--<div class="user-page__price-item">--}}
+                    {{--<div class="user-page__price-col1">Групповая фотосессия</div>--}}
+                    {{--<div class="user-page__price-col2">4 500 руб</div>--}}
+                  {{--</div>--}}
+                  {{--<div class="user-page__price-item">--}}
+                    {{--<div class="user-page__price-col1">Свадебная фотосессия</div>--}}
+                    {{--<div class="user-page__price-col2">250 руб/час</div>--}}
+                  {{--</div>--}}
                 </div>
               </div>
 

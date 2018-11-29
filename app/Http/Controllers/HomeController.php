@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Bullet;
 use App\Photo;
+use App\Servises;
+use App\Tag;
 use App\User;
 use App\UserData;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
@@ -30,11 +33,14 @@ class HomeController extends Controller
 
     public function personalInfo(){
         $user = User::where('id', auth()->user()->id)->with('userData', 'photo')->get();
+        //dd($user[0]->servises);
         $bullets = Bullet::all();
+        $tags = Tag::all();
         //dd($user, $bullets);
         return view('photograph.personal_info', [
             'user' => $user,
             'bullets' => $bullets,
+            'tags' => $tags,
         ]);
     }
 
@@ -74,5 +80,43 @@ class HomeController extends Controller
         }
 
         return redirect()->route('photograph.info');
+    }
+
+    public function tags(){
+        return $tags = Tag::all();
+    }
+
+    public function attachTagUser(Request $request){
+        $user = User::findOrFail(auth()->user()->id);
+        try{
+            $user->tag()->attach($request->input('tag_id'));
+            return 'success';
+        } catch (\Exception $e){
+            return $e;
+        }
+    }
+
+    public function showServises(){
+        return $data = Servises::whereUserId(auth()->user()->id)->get();
+    }
+
+    public function storeServises(Request $request){
+        if ($request->input('free_of_charge') !== null){
+            $free_of_charge = $request->input('free_of_charge');
+                } else {
+            $free_of_charge = 0;
+                };
+        try{
+            Servises::create([
+                'user_id' => Auth::user()->id,
+                'servise_name' => $request->input('servise_name'),
+                'free_of_charge' => $free_of_charge,
+                'cost' => $request->input('cost'),
+                'type' => $request->input('type'),
+            ]);
+            return Servises::where('user_id', Auth::user()->id)->get();
+        }catch(\Exception $e){
+            return $e;
+        }
     }
 }

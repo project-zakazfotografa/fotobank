@@ -112,14 +112,7 @@
                                                     <textarea name="about_me" id="" cols="30" rows="10" class="pa-textarea" placeholder="Добавьте краткое описание (не более 72 символов)">{{ $user[0]->userData !== null ? $user[0]->userData->about_me : '' }}</textarea>
                                                     <div class="pa-user__features">
                                                         <div class="pa-user__features-caption">Выберите соответствующие пункты (не более 5-ти)</div>
-                                                        <div class="pa-user__features-content sortable">
-                                                            <div class="pa-user__features-item">Есть фотостудия</div>
-                                                            <div class="pa-user__features-item">Со светом</div>
-                                                            <div class="pa-user__features-item">Костюмы</div>
-                                                            <div class="pa-user__features-item">Мейк ап</div>
-                                                            <div class="pa-user__features-item">Мартышки</div>
-                                                            <div class="pa-user__features-item">Аэросъемка</div>
-                                                        </div>
+                                                            <tag-user-component></tag-user-component>
                                                     </div>
 
                                                 </div>
@@ -264,118 +257,10 @@
                                                                 </select>
                                                             </div>
                                                         </div>
-
                                                     </div>
                                                     <!-- /pa-user__price-top -->
-                                                    <div class="pa-user__price-bottom sortable">
+                                                    <user-servises-component></user-servises-component>
 
-                                                        <div class="pa-user__price-item">
-                                                            <div class="pa-user__price-name">
-                                                                <label>
-                                                                    <input class="pa-checkbox" type="checkbox" checked>
-                                                                </label>
-                                                                <input class="pa-input" type="text" value="Портретная съемка">
-                                                            </div>
-                                                            <div class="pa-user__price-free">
-                                                                <label>
-                                                                    <span>Бесплатно</span>
-                                                                    <input type="checkbox" checked>
-                                                                </label>
-                                                            </div>
-                                                            <div class="pa-user__price-count">
-                                                                <input class="pa-input" type="text" disabled>
-                                                                <span>руб.</span>
-                                                            </div>
-                                                            <div class="pa-user__price-pay">
-                                                                <select class="pa-select">
-                                                                    <option selected>услуга</option>
-                                                                    <option>час</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="pa-user__price-item">
-                                                            <div class="pa-user__price-name">
-                                                                <label>
-                                                                    <input class="pa-checkbox" type="checkbox" checked>
-                                                                </label>
-                                                                <input class="pa-input" type="text" value="Семейная съемка">
-                                                            </div>
-                                                            <div class="pa-user__price-free">
-                                                                <label>
-                                                                    <span>Бесплатно</span>
-                                                                    <input type="checkbox">
-                                                                </label>
-                                                            </div>
-                                                            <div class="pa-user__price-count">
-                                                                <input class="pa-input" type="text" value="1500">
-                                                                <span>руб.</span>
-                                                            </div>
-                                                            <div class="pa-user__price-pay">
-                                                                <select class="pa-select">
-                                                                    <option selected>услуга</option>
-                                                                    <option>час</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="pa-user__price-item">
-                                                            <div class="pa-user__price-name">
-                                                                <label>
-                                                                    <input class="pa-checkbox" type="checkbox" checked>
-                                                                </label>
-                                                                <input class="pa-input" type="text" value="Свадебная съемка">
-                                                            </div>
-                                                            <div class="pa-user__price-free">
-                                                                <label>
-                                                                    <span>Бесплатно</span>
-                                                                    <input type="checkbox">
-                                                                </label>
-                                                            </div>
-                                                            <div class="pa-user__price-count">
-                                                                <input class="pa-input" type="text" value="250">
-                                                                <span>руб.</span>
-                                                            </div>
-                                                            <div class="pa-user__price-pay">
-                                                                <select class="pa-select">
-                                                                    <option selected>услуга</option>
-                                                                    <option>час</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="pa-user__price-item pa-user__price-item-new">
-                                                            <div class="pa-user__price-name">
-                                                                <label>
-                                                                    <input class="pa-checkbox" type="checkbox" checked>
-                                                                </label>
-                                                                <input class="pa-input" type="text" value="">
-                                                            </div>
-                                                            <div class="pa-user__price-free">
-                                                                <label>
-                                                                    <span>Бесплатно</span>
-                                                                    <input type="checkbox">
-                                                                </label>
-                                                            </div>
-                                                            <div class="pa-user__price-count">
-                                                                <input class="pa-input" type="text" value="">
-                                                                <span>руб.</span>
-                                                            </div>
-                                                            <div class="pa-user__price-pay">
-                                                                <select class="pa-select">
-                                                                    <option selected>услуга</option>
-                                                                    <option>час</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- /pa-user__price-bottom -->
-                                                    <div class="pa-user__price-add">
-                                                        <div class="pa-user__price-add-container">
-                                                            <div class="pa-user__price-add-icon">
-                                                                <span>+</span>
-                                                            </div>
-                                                            <div class="pa-user__price-add-text">Добавить ещё</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- /pa-user__price-add -->
 
                                                 </div>
                                                 <!-- /user-page__block-content -->

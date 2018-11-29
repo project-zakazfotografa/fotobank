@@ -22,6 +22,12 @@ import 'jquery-ui/ui/widgets/sortable';
 
 
 Vue.component('bullets-component', require('./components/cms/BulletsComponent.vue'));
+Vue.component('main-component', require('./components/cms/MainComponent.vue'));
+Vue.component('tag-component', require('./components/cms/TagComponent.vue'));
+Vue.component('photograph-component', require('./components/cms/PhotographComponent.vue'));
+Vue.component('tag-user-component', require('./components/TagUserComponent.vue'));
+Vue.component('user-servises-component', require('./components/UserServisesComponent.vue'));
+Vue.component('left-filter-component', require('./components/LeftFilterComponent.vue'));
 
 
 const app = new Vue({

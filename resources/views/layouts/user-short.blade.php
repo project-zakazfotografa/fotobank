@@ -28,10 +28,9 @@
 
         <div class="user-short__features">
             <div class="tags">
-                <div class="tags-item">Есть фотостудия</div>
-                <div class="tags-item">Со светом</div>
-                <div class="tags-item">Костюмы</div>
-                <div class="tags-item">Мейк ап</div>
+                @foreach($user->tag as $item)
+                    <div class="tags-item">{{ $item->name }}</div>
+                    @endforeach
             </div>
         </div>
 
