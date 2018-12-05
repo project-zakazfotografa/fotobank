@@ -20,7 +20,7 @@
                     </div>
                     <div class="add-photo__tags">
                         <div class="pa-tag">
-                            @if($bullets[0] !== null)
+                            @if(count($bullets) && $bullets[0] !== null)
                                 @foreach($bullets as $bullet)
                                   <label class="pa-tag__label">
                                     <input class="pa-tag__checkbox" type="checkbox" name="bullets[]" value="{{ $bullet->id }}" id="{{ $bullet->id }}">
