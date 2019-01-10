@@ -330,7 +330,8 @@
   }
 
   &-radius {
-    display: flex;
+    display: none;
+    // display: flex;
     align-items: center;
     margin-bottom: 20px;
     font-size: 14px;
@@ -351,6 +352,7 @@
 }
 
 .pa-user__worktime {
+  display: none;
   &-caption {
     margin-bottom: 1rem;
     font-size: 18px;

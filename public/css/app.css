@@ -12953,6 +12953,10 @@ ul {
   height: 100%;
 }
 
+.user-page__diplomas {
+  display: none;
+}
+
 .user-page__diplomas-content {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -13323,6 +13327,19 @@ ul {
   outline: none;
 }
 
+.pa-form__block {
+  margin-bottom: 15px;
+}
+
+.pa-form__block:last-child {
+  margin-bottom: 0;
+}
+
+.pa-form__block label {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
 .pa-user__pic {
   position: relative;
   display: -webkit-box;
@@ -13689,9 +13706,7 @@ ul {
 }
 
 .pa-user__city-radius {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -13710,6 +13725,10 @@ ul {
   padding: 0;
   font-size: 14px;
   text-align: center;
+}
+
+.pa-user__worktime {
+  display: none;
 }
 
 .pa-user__worktime-caption {

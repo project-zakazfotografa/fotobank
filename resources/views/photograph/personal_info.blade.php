@@ -61,13 +61,27 @@
                                                     } );
                                                 </script>
                                                 <div class="pa-user__info">
-                                                    <input class="pa-input" name="first_name" type="text" placeholder="Имя" value="{{ $user[0]->userData !== null ? $user[0]->userData->first_name : '' }}">
-                                                    <input class="pa-input" type="text" placeholder="Фамилия" name="last_name" value="{{ $user[0]->userData !== null ? $user[0]->userData->last_name : '' }}">
-                                                    <div class="pa-user__birthday">
-                                                        {{--<input id="pa-birthday" class="pa-input pa-user__birthday" type="text" name="birth_date" placeholder="Дата рождения" value="{{ $user[0]->userData !== null ? $user[0]->userData->birth_date : '' }}">--}}
-                                                        {{--<input id="pa-birthday" class="pa-input pa-user__birthday" type="text" name="birth_date" placeholder="Дата рождения" value="{{ $user[0]->userData !== null ? $user[0]->userData->birth_date : '' }}">--}}
-                                                        <input id="pa-birthday" class="pa-input" type="date" name="birth_date" placeholder="Дата рождения" value="{{ $user[0]->userData !== null ? $user[0]->userData->birth_date : '' }}">
+                                                    <div class="pa-form__block">
+                                                      <label>Имя</label>
+                                                      <input class="pa-input" name="first_name" type="text" placeholder="" value="{{ $user[0]->userData !== null ? $user[0]->userData->first_name : '' }}">
                                                     </div>
+
+                                                    <div class="pa-form__block">
+                                                      <label>Фамилия</label>
+                                                      <input class="pa-input" type="text" placeholder="Фамилия" name="last_name" value="{{ $user[0]->userData !== null ? $user[0]->userData->last_name : '' }}">
+                                                    </div>
+
+                                                    <div class="pa-form__block">
+                                                      <label>Дата рождения</label>
+                                                      <div class="pa-user__birthday">
+                                                          {{--<input id="pa-birthday" class="pa-input pa-user__birthday" type="text" name="birth_date" placeholder="Дата рождения" value="{{ $user[0]->userData !== null ? $user[0]->userData->birth_date : '' }}">--}}
+                                                          {{--<input id="pa-birthday" class="pa-input pa-user__birthday" type="text" name="birth_date" placeholder="Дата рождения" value="{{ $user[0]->userData !== null ? $user[0]->userData->birth_date : '' }}">--}}
+                                                          <input id="pa-birthday" class="pa-input" type="date" name="birth_date" placeholder="Дата рождения" value="{{ $user[0]->userData !== null ? $user[0]->userData->birth_date : '' }}">
+                                                      </div>
+                                                    </div>
+
+
+
                                                 </div>
                                                 <div class="pa-user__experience">
                                                     <span>Опыт, лет</span>
@@ -78,13 +92,25 @@
                                             <!-- /user-page__user -->
 
                                             <div class="user-page__contacts user-page__block">
-                                                <div class="user-page__block-content">
-                                                    <div class="pa-user__contacts">
-                                                        <input class="pa-input" type="phone" name="phone" placeholder="Телефон для связи" value="{{ $user[0]->userData !== null ? $user[0]->userData->phone : '' }}">
-                                                        <input class="pa-input" name="email" type="email" placeholder="email" value="{{ $user[0]->email }}">
-                                                        <input class="pa-input" type="text" name="site" placeholder="Сайт" value="{{ $user[0]->userData !== null ? $user[0]->userData->site : '' }}">
+                                              <div class="user-page__block-content">
+                                                  <div class="pa-user__contacts">
+
+                                                    <div class="pa-form__block">
+                                                      <label>Телефон</label>
+                                                      <input class="pa-input" type="phone" name="phone" placeholder="" value="{{ $user[0]->userData !== null ? $user[0]->userData->phone : '' }}">
                                                     </div>
-                                                </div>
+
+                                                    <div class="pa-form__block">
+                                                      <label>Email</label>
+                                                      <input class="pa-input" name="email" type="email" placeholder="email" value="{{ $user[0]->email }}">
+                                                    </div>
+
+                                                    <div class="pa-form__block">
+                                                      <label>Сайт</label>
+                                                      <input class="pa-input" type="text" name="site" placeholder="" value="{{ $user[0]->userData !== null ? $user[0]->userData->site : '' }}">
+                                                    </div>
+                                                  </div>
+                                              </div>
 
                                             </div>
                                             <!-- /user-page__contacts -->
@@ -125,7 +151,7 @@
                                                     <div class="user-page__block-caption">Ваш город</div>
                                                     <div class="pa-user__city-info">
                                                         <input class="pa-input" type="text" name="city" placeholder="Ваш город" value="{{ $user[0]->userData !== null ? $user[0]->userData->city : ''}}">
-                                                        <input class="pa-input" type="text" name="address" placeholder="Адрес" value="{{ $user[0]->userData !== null ? $user[0]->userData->address : '' }}">
+                                                        <!-- <input class="pa-input" type="text" name="address" placeholder="Адрес" value="{{ $user[0]->userData !== null ? $user[0]->userData->address : '' }}"> -->
                                                     </div>
                                                     <div class="pa-user__city-radius">
                                                         <span class="pa-user__city-radius-text">Показывать заявки в радиусе: </span>
@@ -240,7 +266,7 @@
                                                                 </select>
                                                             </div>
                                                         </div>
-                                                        <div class="pa-user__price-item">
+                                                        <!-- <div class="pa-user__price-item">
                                                             <div class="pa-user__price-name">
                                                                 <label>
                                                                     <span>Час работы от</span>
@@ -256,7 +282,7 @@
                                                                     <option value="услуга" {{ $user[0]->userData !== null && $user[0]->userData->currency_h == 'услуга' ? 'selected' : '' }}>услуга</option>
                                                                 </select>
                                                             </div>
-                                                        </div>
+                                                        </div> -->
                                                     </div>
                                                     <!-- /pa-user__price-top -->
                                                     <user-servises-component></user-servises-component>
